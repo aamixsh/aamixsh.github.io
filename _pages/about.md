@@ -8,8 +8,13 @@ redirect_from:
   - /about.html
 ---
 
-I am a first year PhD student in the Computer Science department of the Whiting School of Engineering at Johns Hopking University. I am advised by Professor [Anqi (Angie) Liu](https://anqiliu-ai.github.io). I am passionate about robust and explainable machine intelligence.
-Prior to this, I worked as a Data Scientist at Microsoft and a Research Professional at Siemens. I received my Bachelors degree in Computer Science and Engineering from [Indian Institute of Technology Mandi](https://www.iitmandi.ac.in) in 2019.
+I am a first year PhD student in the Computer Science department of the Whiting School of Engineering at Johns Hopking University, advised by Professor [Anqi (Angie) Liu](https://anqiliu-ai.github.io). 
+
+I am passionate about robust and explainable machine intelligence.
+
+Prior to this, I worked as a Data Scientist at Microsoft and a Research Professional at Siemens. 
+
+I received my Bachelors degree in Computer Science and Engineering from [Indian Institute of Technology Mandi](https://www.iitmandi.ac.in) in 2019.
 
 <!-- Getting started
 ======
