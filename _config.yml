@@ -11,9 +11,9 @@ title                    : "Aayush Mishra"
 title_separator          : "-"
 name                     : &name "Aayush Mishra"
 description              : &description "PhD Candidate at Johns Hopkins University"
-url                      : https://aayush.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://aamish107.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "aayushm107/aayush.github.io"
+repository               : "aamish107.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -85,7 +85,7 @@ author:
   bio              : "PhD Candidate in Computer Science at Johns Hopkins University"
   location         : "Baltimore, MD (USA)"
   employer         :
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   googlescholar    : "https://scholar.google.com/citations?hl=en&user=qd0DNpEAAAAJ"
   email            : "amishr24 [at] jh [dot] edu"
   researchgate     :  # example: "https://www.researchgate.net/profile/yourprofile"
@@ -103,7 +103,7 @@ author:
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
   linkedin         : "aamish7"
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
