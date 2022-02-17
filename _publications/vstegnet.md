@@ -4,7 +4,7 @@ collection: publications
 permalink: /publication/vstegnet
 excerpt: 'Hiding videos inside other videos'
 date: 2019-09-09
-venue: 'British Machine Vision Conference (BMVC) 2019'
+venue: 'British Machine Vision Conference (BMVC)'
 paperurl: 'https://bmvc2019.org/wp-content/uploads/papers/0966-paper.pdf'
 citation: 'Mishra, Aayush, et al. "VStegNET: Video Steganography Network using Spatio-Temporal features and Micro-Bottleneck." BMVC. 2019.'
 ---
