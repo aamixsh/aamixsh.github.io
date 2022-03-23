@@ -11,9 +11,9 @@ title                    : "Aayush Mishra"
 title_separator          : "-"
 name                     : &name "Aayush Mishra"
 description              : &description "PhD Candidate at Johns Hopkins University"
-url                      : https://aamish107.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : https://aamixsh.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "aamish107.github.io"
+repository               : "aamixsh.github.io"
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
 breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
@@ -94,22 +94,22 @@ author:
   codepen          :
   dribbble         :
   flickr           :
-  facebook         : "aamish107"
+  facebook         : "aamixsh"
   foursquare       :
-  github           : "aamish107"
+  github           : "aamixsh"
   google_plus      :
   keybase          :
-  instagram        : "aamish107"
+  instagram        : "aamixsh"
   impactstory      : #"https://profiles.impactstory.org/u/xxxx-xxxx-xxxx-xxxx"
   lastfm           :
-  linkedin         : "aamish107"
+  linkedin         : "aamixsh"
   orcid            : # "http://orcid.org/yourorcidurl"
   pinterest        :
   soundcloud       :
   stackoverflow    : # http://stackoverflow.com/users/123456/username
   steam            :
   tumblr           :
-  twitter          : "aamish107"
+  twitter          : "aamixsh"
   vine             :
   weibo            :
   xing             :
