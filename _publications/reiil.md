@@ -4,7 +4,7 @@ collection: publications
 permalink: /publication/reiil
 excerpt: 'Improving EIIL'
 date: 2022-07-22
-venue: 'International Conference on Machine Learning (ICML)'
+venue: 'International Conference on Machine Learning (ICML) -- Workshop on Spurious Correlations, Invariance and Stability'
 paperurl: 
 # citation: 'Mishra, Aayush, et al. "Repeated Environment Inference for Invariant Learning" ICML (SCIS Workshop) 2022.'
 ---
