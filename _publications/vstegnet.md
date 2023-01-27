@@ -6,7 +6,7 @@ excerpt: 'Hiding videos inside other videos'
 date: 2019-09-09
 venue: 'British Machine Vision Conference (BMVC)'
 paperurl: 
-citation: 'Mishra, Aayush, et al. "VStegNET: Video Steganography Network using Spatio-Temporal features and Micro-Bottleneck." BMVC. 2019.'
+# citation: 'Mishra, Aayush, et al. "VStegNET: Video Steganography Network using Spatio-Temporal features and Micro-Bottleneck." BMVC. 2019.'
 ---
 This paper introduces a novel technique to hide a secret video inside a public cover video for use in covert communication.
 

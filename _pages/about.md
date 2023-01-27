@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a first year Computer Science PhD student at Johns Hopkins University, advised by Professor [Anqi (Angie) Liu](https://anqiliu-ai.github.io). 
+I am a second year Computer Science PhD student at Johns Hopkins University, advised by Professor [Anqi (Angie) Liu](https://anqiliu-ai.github.io). 
 
 I am passionate about robust and explainable machine intelligence.
 
