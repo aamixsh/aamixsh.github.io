@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-Find my CV [here](https://aamixsh.github.io/files/CV.pdf). (updated: 12/27/22)
+Find my CV [here](https://aamixsh.github.io/files/CV.pdf). (updated: 03/27/23)
 
 <!-- Education
 ======
