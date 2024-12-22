@@ -8,13 +8,13 @@ redirect_from:
   - /about.html
 ---
 
-I am a second year Computer Science PhD student at Johns Hopkins University, advised by Professor [Anqi (Angie) Liu](https://anqiliu-ai.github.io). 
+I am a third year Computer Science PhD student at Johns Hopkins University (JHU), advised by Professor [Anqi (Angie) Liu](https://anqiliu-ai.github.io). 
 
-I am passionate about robust and explainable machine intelligence.
+My research aims to make Artificial Intelligence systems robust, explainable and efficient.
 
-Prior to this, I worked as a Data Scientist at Microsoft and a Research Professional at Siemens. 
+Apart from academics, I have 3+ years of industry experience as a research intern at Adobe (graduate) & Siemens (undergrad), a Data Scientist at Microsoft, and a Research Engineer at Siemens.
 
-I received my Bachelors degree in Computer Science and Engineering from [Indian Institute of Technology Mandi](https://www.iitmandi.ac.in) in 2019.
+I currently hold a Masters degree from [JHU](https://www.jhu.edu) and a Bachelors degree from [IIT Mandi](https://www.iitmandi.ac.in), both in Computer Science.
 
 <!-- Getting started
 ======
