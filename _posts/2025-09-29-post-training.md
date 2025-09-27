@@ -1,5 +1,5 @@
 ---
-title: 'Upcoming'
+title: "What's missing in LLMs?"
 date: 2025-09-29
 permalink: /posts/2025/09/post-training/
 tags:
@@ -8,5 +8,3 @@ tags:
   - RL
   - SFT
 ---
-
-In work.
