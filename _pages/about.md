@@ -16,6 +16,8 @@ Apart from academics, I have 3+ years of industry experience at companies like A
 
 Previously, I received a Bachelors degree in Computer Science from [IIT Mandi](https://www.iitmandi.ac.in).
 
+You can find my works on <a href="https://scholar.google.com/citations?user=qd0DNpEAAAAJ&hl=en">Google Scholar</a>, and CV [here](https://aamixsh.github.io/files/CV.pdf).
+
 <!-- Getting started
 ======
 1. Register a GitHub account if you don't have one and confirm your e-mail (required!)

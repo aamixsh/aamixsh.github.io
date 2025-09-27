@@ -12,7 +12,7 @@ site_theme               : "default" # Currently available options are "default"
 title                    : "Aayush Mishra"
 title_separator          : "-"
 name                     : &name "Aayush Mishra"
-description              : &description "Aayush Mishra's academic portfolio"   # Update this with a general description of your site, this is the default if not overridden by a page
+description              : &description "Aayush Mishra's personal website"   # Update this with a general description of your site, this is the default if not overridden by a page
 url                      : https://aamixsh.github.io # The base hostname & protocol for your site e.g. "https://[your GitHub username].github.io",
                                                            # or if you already have some other page hosted on Github then use "https://[your GitHub username].github.io/[Your Repo Name]"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -23,7 +23,7 @@ repository               : "aamixsh.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.jpg"
   name             : "Aayush Mishra"
   pronouns         : # example: "she/her"  
   bio              : "PhD Student in Computer Science at Johns Hopkins University"
@@ -38,46 +38,46 @@ author:
   googlescholar    : "https://scholar.google.com/citations?hl=enhttps://scholar.google.com/citations?user=PS_CX0AAAAAJuser=qd0DNpEAAAAJ"
   inspire-hep      : # URL
   impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
+  orcid            : # "http://orcid.org/yourorcidurl"
   semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  pubmed           : # "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
   researchgate     : # URL
   scopus           : # URL
 
   # Repositories and software development
-  bitbucket        : aamixsh - Update with your username on the site
-  codepen          : aamixsh
-  dribbble         : aamixsh
+  bitbucket        : #aamixsh - Update with your username on the site
+  codepen          : #aamixsh
+  dribbble         : #aamixsh
   github           : "aamixsh"
-  kaggle           : aamixsh  
+  kaggle           : #aamixsh  
   stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  artstation       : aamixsh
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
+  artstation       : #aamixsh
+  bluesky          : #"bsky.app" # Replace this with you Bluesky username
   facebook         : aamixsh
-  flickr           : aamixsh
-  foursquare       : aamixsh
-  goodreads        : aamixsh
-  google_plus      : aamixsh
-  keybase          : aamixsh
+  flickr           : #aamixsh
+  foursquare       : #aamixsh
+  goodreads        : #aamixsh
+  google_plus      : #aamixsh
+  keybase          : #aamixsh
   instagram        : aamixsh
-  lastfm           : aamixsh
+  lastfm           : #aamixsh
   linkedin         : aamixsh
   mastodon         : # URL
   medium           : # URL
-  pinterest        : aamixsh
-  soundcloud       : aamixsh
-  steam            : aamixsh
+  pinterest        : #aamixsh
+  soundcloud       : #aamixsh
+  steam            : #aamixsh
   telegram         : # URL
-  tumblr           : aamixsh
-  twitter          : aamixsh for X / Twitter
-  vine             : aamixsh
-  weibo            : aamixsh
-  wikipedia        : aamixsh
-  xing             : aamixsh
+  tumblr           : #aamixsh
+  twitter          : aamixsh
+  vine             : #aamixsh
+  weibo            : #aamixsh
+  wikipedia        : #aamixsh
+  xing             : #aamixsh
   youtube          : aamixsh
-  zhihu            : aamixsh
+  zhihu            : #aamixsh
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
@@ -299,7 +299,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: Etc/UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/New_York # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
