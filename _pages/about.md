@@ -10,9 +10,9 @@ redirect_from:
 
 I am a fourth year Computer Science PhD student at Johns Hopkins University (JHU), advised by Professor [Anqi (Angie) Liu](https://anqiliu-ai.github.io). 
 
-My research aims to make AI systems robust, explainable and efficient.
+My research aims to achieve efficient and reliable adaptation in AI models.
 
-Apart from academics, I have 3+ years of industry experience at companies like Adobe, Microsoft and Siemens.
+I have 3+ years of industry experience at companies like Adobe, Microsoft and Siemens.
 
 Previously, I received a Bachelors degree in Computer Science from [IIT Mandi](https://www.iitmandi.ac.in).
 
