@@ -8,7 +8,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a fourth year Computer Science PhD student at Johns Hopkins University (JHU), advised by Professor [Anqi (Angie) Liu](https://anqiliu-ai.github.io). 
+I am a fifth year Computer Science PhD student at Johns Hopkins University (JHU), advised by Professor [Anqi (Angie) Liu](https://anqiliu-ai.github.io). 
 
 My research aims to achieve efficient and reliable adaptation in AI models.
 
