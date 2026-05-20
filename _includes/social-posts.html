@@ -1,0 +1,120 @@
+{% comment %}
+  Social Posts Section
+  Renders curated X/Twitter and YouTube posts from _data/social_posts.yml
+  into a visually appealing grid with lazy-loaded embeds.
+{% endcomment %}
+
+{% if site.data.social_posts.size > 0 %}
+<section id="research-highlights" class="social-posts-section">
+  <h2 class="social-posts-section__heading">
+    <span class="social-posts-section__heading-icon">
+      <i class="fas fa-bullhorn" aria-hidden="true"></i>
+    </span>
+    Research Highlights
+  </h2>
+  <p class="social-posts-section__subheading">Selected posts showcasing my work.</p>
+
+  <div class="social-posts-grid">
+    {% for post in site.data.social_posts %}
+    <article class="social-post-card social-post-card--{{ post.platform }}" id="social-post-{{ forloop.index }}">
+      <!-- Card header -->
+      <div class="social-post-card__header">
+        <span class="social-post-card__platform-badge social-post-card__platform-badge--{{ post.platform }}">
+          {% if post.platform == "x" %}
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i> Post
+          {% elsif post.platform == "youtube" %}
+            <i class="fa-brands fa-youtube" aria-hidden="true"></i> Video
+          {% endif %}
+        </span>
+        {% if post.date %}
+          <time class="social-post-card__date">{{ post.date }}</time>
+        {% endif %}
+      </div>
+
+      <!-- Card title & description -->
+      <h3 class="social-post-card__title">{{ post.title }}</h3>
+      {% if post.description %}
+        <p class="social-post-card__desc">{{ post.description }}</p>
+      {% endif %}
+
+      <!-- Tags -->
+      {% if post.tags.size > 0 %}
+        <div class="social-post-card__tags">
+          {% for tag in post.tags %}
+            <span class="social-post-card__tag">{{ tag }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      <!-- Embed area -->
+      <div class="social-post-card__embed">
+        {% if post.platform == "x" %}
+          <div class="social-post-card__embed-placeholder" data-embed-type="x" data-tweet-id="{{ post.embed_id }}">
+            <button class="social-post-card__load-btn" aria-label="Load tweet">
+              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+              <span>Load Post</span>
+            </button>
+          </div>
+        {% elsif post.platform == "youtube" %}
+          <div class="social-post-card__embed-placeholder" data-embed-type="youtube" data-video-id="{{ post.embed_id }}">
+            <div class="social-post-card__yt-thumb" style="background-image: url('https://img.youtube.com/vi/{{ post.embed_id }}/hqdefault.jpg');">
+              <button class="social-post-card__play-btn" aria-label="Play video">
+                <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.63-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24L27 14v20" fill="#FFF"/></svg>
+              </button>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+(function() {
+  // Lazy-load X/Twitter embeds
+  var twitterLoaded = false;
+  function loadTwitterSDK(cb) {
+    if (twitterLoaded) { if (window.twttr) cb(); return; }
+    twitterLoaded = true;
+    var s = document.createElement('script');
+    s.src = 'https://platform.twitter.com/widgets.js';
+    s.async = true;
+    s.onload = cb;
+    document.head.appendChild(s);
+  }
+
+  // Handle X/Twitter load buttons
+  document.querySelectorAll('[data-embed-type="x"]').forEach(function(el) {
+    var btn = el.querySelector('.social-post-card__load-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var tweetId = el.getAttribute('data-tweet-id');
+      el.innerHTML = '<div class="social-post-card__loading"><div class="social-post-card__spinner"></div></div>';
+      loadTwitterSDK(function() {
+        var container = document.createElement('div');
+        el.innerHTML = '';
+        el.appendChild(container);
+        // Detect dark mode
+        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        twttr.widgets.createTweet(tweetId, container, {
+          theme: isDark ? 'dark' : 'light',
+          dnt: true,
+          align: 'center'
+        });
+      });
+    });
+  });
+
+  // Handle YouTube play buttons
+  document.querySelectorAll('[data-embed-type="youtube"]').forEach(function(el) {
+    var btn = el.querySelector('.social-post-card__play-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function() {
+      var videoId = el.getAttribute('data-video-id');
+      el.innerHTML = '<iframe class="social-post-card__yt-iframe" src="https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+    });
+  });
+})();
+</script>
+{% endif %}

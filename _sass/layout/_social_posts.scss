@@ -1,0 +1,274 @@
+/* ==========================================================================
+   SOCIAL POSTS SECTION
+   Styles for the Research Highlights / social media embed cards
+   ========================================================================== */
+
+/* ---- Section ---- */
+.social-posts-section {
+  margin-top: 2.5em;
+  padding-top: 2em;
+  border-top: 1px solid var(--global-border-color);
+}
+
+.social-posts-section__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.15em;
+  font-size: $type-size-3;
+  font-weight: 700;
+  color: var(--global-text-color);
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.social-posts-section__heading-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--global-link-color) 0%, var(--global-link-color-hover) 100%);
+  color: #fff;
+  font-size: 0.65em;
+  flex-shrink: 0;
+}
+
+.social-posts-section__subheading {
+  margin-top: 0;
+  margin-bottom: 1.8em;
+  color: var(--global-text-color-light);
+  font-size: $type-size-5;
+}
+
+/* ---- Grid ---- */
+.social-posts-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5em;
+
+  @include breakpoint($medium) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ---- Card ---- */
+.social-post-card {
+  position: relative;
+  background: var(--global-bg-color);
+  border: 1px solid var(--global-border-color);
+  border-radius: 12px;
+  padding: 1.4em 1.4em 1.2em;
+  transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    border-color: var(--global-dark-border-color);
+  }
+
+  /* Accent top-border per platform */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    border-radius: 12px 12px 0 0;
+  }
+
+  &--x::before {
+    background: linear-gradient(90deg, #1DA1F2, #0d8ecf);
+  }
+
+  &--youtube::before {
+    background: linear-gradient(90deg, #FF0000, #cc0000);
+  }
+}
+
+/* ---- Card header ---- */
+.social-post-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65em;
+}
+
+.social-post-card__platform-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  font-size: $type-size-7;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.25em 0.65em;
+  border-radius: 6px;
+
+  &--x {
+    background: rgba(29,161,242,0.1);
+    color: #1DA1F2;
+  }
+
+  &--youtube {
+    background: rgba(255,0,0,0.08);
+    color: #FF0000;
+  }
+}
+
+html[data-theme="dark"] {
+  .social-post-card__platform-badge--x {
+    background: rgba(29,161,242,0.18);
+  }
+  .social-post-card__platform-badge--youtube {
+    background: rgba(255,0,0,0.15);
+  }
+}
+
+.social-post-card__date {
+  font-size: $type-size-7;
+  color: var(--global-text-color-light);
+  font-weight: 500;
+}
+
+/* ---- Card content ---- */
+.social-post-card__title {
+  font-size: $type-size-4;
+  font-weight: 700;
+  margin: 0 0 0.3em;
+  color: var(--global-text-color);
+}
+
+.social-post-card__desc {
+  font-size: $type-size-6;
+  color: var(--global-text-color-light);
+  margin: 0 0 0.75em;
+  line-height: 1.5;
+}
+
+/* ---- Tags ---- */
+.social-post-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-bottom: 1em;
+}
+
+.social-post-card__tag {
+  display: inline-block;
+  font-size: $type-size-8;
+  font-weight: 600;
+  padding: 0.2em 0.6em;
+  border-radius: 4px;
+  background: var(--global-code-background-color);
+  color: var(--global-link-color);
+  border: 1px solid var(--global-border-color);
+  transition: $global-transition;
+}
+
+html[data-theme="dark"] .social-post-card__tag {
+  background: rgba(255,255,255,0.06);
+}
+
+/* ---- Embed area ---- */
+.social-post-card__embed {
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--global-code-background-color);
+  min-height: 60px;
+}
+
+html[data-theme="dark"] .social-post-card__embed {
+  background: rgba(255,255,255,0.04);
+}
+
+/* ---- Load button (X/Twitter) ---- */
+.social-post-card__load-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  width: 100%;
+  padding: 1em;
+  border: none;
+  background: transparent;
+  color: var(--global-link-color);
+  font-size: $type-size-6;
+  font-weight: 600;
+  cursor: pointer;
+  transition: $global-transition;
+
+  &:hover {
+    background: rgba(29,161,242,0.08);
+    color: var(--global-link-color-hover);
+  }
+
+  i {
+    font-size: 1.15em;
+  }
+}
+
+/* ---- Loading spinner ---- */
+.social-post-card__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+}
+
+.social-post-card__spinner {
+  width: 28px;
+  height: 28px;
+  border: 3px solid var(--global-border-color);
+  border-top-color: var(--global-link-color);
+  border-radius: 50%;
+  animation: social-spin 0.7s linear infinite;
+}
+
+@keyframes social-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ---- YouTube thumbnail ---- */
+.social-post-card__yt-thumb {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+}
+
+.social-post-card__play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.85;
+  transition: opacity 0.2s, transform 0.2s;
+
+  &:hover {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* ---- YouTube iframe ---- */
+.social-post-card__yt-iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 8px;
+}
+
+/* ---- Twitter embed overrides ---- */
+.social-post-card__embed .twitter-tweet {
+  margin: 0 auto !important;
+}

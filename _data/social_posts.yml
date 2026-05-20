@@ -1,0 +1,50 @@
+# =============================================================================
+# Social Posts — Curated X/Twitter and YouTube posts highlighting your research.
+#
+# Each entry supports the following fields:
+#   platform:    "x" or "youtube"
+#   embed_id:    The tweet ID (for X) or video ID (for YouTube)
+#   title:       A short descriptive title shown above the embed
+#   description: Optional one-liner shown below the title (markdown supported)
+#   date:        Date string shown as metadata (e.g. "May 2026")
+#   tags:        Optional list of topic tags
+# =============================================================================
+
+# - platform: "x"
+#   embed_id: "1862295411037556741"
+#   title: "Efficient LLM Adaptation"
+#   description: "Thread summarizing our latest findings on parameter-efficient fine-tuning."
+#   date: "Nov 2024"
+#   tags:
+#     - LLMs
+#     - Adaptation
+
+# - platform: "youtube"
+#   embed_id: "dQw4w9WgXcQ"
+#   title: "Research Talk — Reliable AI Adaptation"
+#   description: "Conference talk on achieving efficient and reliable adaptation in AI models."
+#   date: "Sep 2024"
+#   tags:
+#     - Talk
+#     - Adaptation
+
+# - platform: "x"
+#   embed_id: "1862295411037556741"
+#   title: "Distribution Shift & Robustness"
+#   description: "Key takeaways from our work on handling distribution shift in deployed models."
+#   date: "Jun 2024"
+#   tags:
+#     - Robustness
+#     - Distribution Shift
+
+- platform: "x"
+  embed_id: "2056357773521084767"
+  title: "Steered LLM Activations are Non-Surjective"
+  description: "We show that almost surely, there is no prompt that can produce steered activation states."
+  date: "May 2026"
+  tags:
+    - LLMs
+    - AI Safety
+    - Activation Steering
+    - Interpretability
+    - Alignment

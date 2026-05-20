@@ -18,6 +18,8 @@ Previously, I received a Bachelors degree in Computer Science from [IIT Mandi](h
 
 [Google Scholar](https://scholar.google.com/citations?user=qd0DNpEAAAAJ&hl=en) / [CV](https://aamixsh.github.io/files/CV.pdf)
 
+{% include social-posts.html %}
+
 <!-- Getting started
 ======
 1. Register a GitHub account if you don't have one and confirm your e-mail (required!)
