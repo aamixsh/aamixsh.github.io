@@ -48,3 +48,16 @@
     - Activation Steering
     - Interpretability
     - Alignment
+
+- platform: "x"
+  embed_id: "1973854124627337437"
+  title: "ICL Activation Alignment improves Supervised Fine-Tuning"
+  description: "We show that in-context learning ability of LLMs can be used as self-supervision signals to improve the quality of adaptation."
+  date: "October 2025"
+  tags:
+    - LLMs
+    - In-Context Learning
+    - Self-Distillation
+    - Supervised Fine-Tuning
+    - Sample Efficiency
+    - Calibration
