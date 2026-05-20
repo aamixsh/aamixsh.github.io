@@ -49,16 +49,13 @@
       <!-- Embed area -->
       <div class="social-post-card__embed">
         {% if post.platform == "x" %}
-          <div class="social-post-card__embed-placeholder" data-embed-type="x" data-tweet-id="{{ post.embed_id }}">
-            <button class="social-post-card__load-btn" aria-label="Load tweet">
-              <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
-              <span>Load Post</span>
-            </button>
-          </div>
+          <blockquote class="twitter-tweet" data-dnt="true" data-theme="dark">
+            <a href="https://x.com/i/status/{{ post.embed_id }}">View on X</a>
+          </blockquote>
         {% elsif post.platform == "youtube" %}
-          <div class="social-post-card__embed-placeholder" data-embed-type="youtube" data-video-id="{{ post.embed_id }}">
+          <div class="social-post-card__embed-placeholder" data-video-id="{{ post.embed_id }}">
             <div class="social-post-card__yt-thumb" style="background-image: url('https://img.youtube.com/vi/{{ post.embed_id }}/hqdefault.jpg');">
-              <button class="social-post-card__play-btn" aria-label="Play video">
+              <button class="social-post-card__play-btn" aria-label="Play video" onclick="this.parentElement.parentElement.innerHTML='<iframe class=\'social-post-card__yt-iframe\' src=\'https://www.youtube-nocookie.com/embed/{{ post.embed_id }}?autoplay=1&rel=0\' title=\'YouTube video\' frameborder=\'0\' allow=\'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\' allowfullscreen loading=\'lazy\'></iframe>'">
                 <svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55c-2.93.78-4.63 3.26-5.42 6.19C.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.63-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="#FF0000"/><path d="M45 24L27 14v20" fill="#FFF"/></svg>
               </button>
             </div>
@@ -70,51 +67,5 @@
   </div>
 </section>
 
-<script>
-(function() {
-  // Lazy-load X/Twitter embeds
-  var twitterLoaded = false;
-  function loadTwitterSDK(cb) {
-    if (twitterLoaded) { if (window.twttr) cb(); return; }
-    twitterLoaded = true;
-    var s = document.createElement('script');
-    s.src = 'https://platform.twitter.com/widgets.js';
-    s.async = true;
-    s.onload = cb;
-    document.head.appendChild(s);
-  }
-
-  // Handle X/Twitter load buttons
-  document.querySelectorAll('[data-embed-type="x"]').forEach(function(el) {
-    var btn = el.querySelector('.social-post-card__load-btn');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-      var tweetId = el.getAttribute('data-tweet-id');
-      el.innerHTML = '<div class="social-post-card__loading"><div class="social-post-card__spinner"></div></div>';
-      loadTwitterSDK(function() {
-        var container = document.createElement('div');
-        el.innerHTML = '';
-        el.appendChild(container);
-        // Detect dark mode
-        var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        twttr.widgets.createTweet(tweetId, container, {
-          theme: isDark ? 'dark' : 'light',
-          dnt: true,
-          align: 'center'
-        });
-      });
-    });
-  });
-
-  // Handle YouTube play buttons
-  document.querySelectorAll('[data-embed-type="youtube"]').forEach(function(el) {
-    var btn = el.querySelector('.social-post-card__play-btn');
-    if (!btn) return;
-    btn.addEventListener('click', function() {
-      var videoId = el.getAttribute('data-video-id');
-      el.innerHTML = '<iframe class="social-post-card__yt-iframe" src="https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
-    });
-  });
-})();
-</script>
+<script async src="https://platform.twitter.com/widgets.js"></script>
 {% endif %}
