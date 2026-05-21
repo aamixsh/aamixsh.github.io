@@ -139,11 +139,12 @@ html[data-theme="dark"] {
   overflow-x: auto;
   white-space: nowrap;
   gap: 0.4em;
-  margin-bottom: 0.75em;
   padding-bottom: 2px;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  max-width: 70%;
+  justify-content: flex-end;
 
   &::-webkit-scrollbar {
     display: none;
@@ -158,11 +159,29 @@ html[data-theme="dark"] {
   letter-spacing: 0.05em;
   padding: 0.25em 0.6em;
   border-radius: 4px;
-  background: var(--global-code-background-color);
-  background: color-mix(in srgb, var(--global-link-color) 12%, transparent);
-  color: var(--global-link-color);
-  border: 1px solid var(--global-link-color);
+  background: rgba(184, 134, 11, 0.08);
+  color: #a67c1e;
+  border: 1px solid rgba(184, 134, 11, 0.3);
   flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: rgba(184, 134, 11, 0.15);
+    border-color: rgba(184, 134, 11, 0.5);
+  }
+}
+
+html[data-theme="dark"] {
+  .social-post-card__highlight-tag {
+    background: rgba(255, 215, 0, 0.08);
+    color: #ffd700;
+    border-color: rgba(255, 215, 0, 0.35);
+
+    &:hover {
+      background: rgba(255, 215, 0, 0.15);
+      border-color: rgba(255, 215, 0, 0.6);
+    }
+  }
 }
 
 /* ---- Card content ---- */
