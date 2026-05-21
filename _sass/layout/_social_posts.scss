@@ -41,14 +41,29 @@
   font-size: $type-size-5;
 }
 
-/* ---- Grid ---- */
+/* ---- Grid (horizontal scroll carousel) ---- */
 .social-posts-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5em;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1.25em;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 1em;   /* space for scrollbar on desktop */
+  scroll-padding-left: 1em;
+  scrollbar-width: thin;
+  scrollbar-color: var(--global-border-color) transparent;
 
-  @include breakpoint($medium) {
-    grid-template-columns: repeat(2, 1fr);
+  &::-webkit-scrollbar {
+    height: 5px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: var(--global-border-color);
+    border-radius: 3px;
   }
 }
 
@@ -58,6 +73,8 @@
   background: var(--global-bg-color);
   border: 1px solid var(--global-border-color);
   border-radius: 12px;
+  flex: 0 0 min(380px, 80vw);   /* fixed card width, shrinks on small screens */
+  scroll-snap-align: start;
   padding: 1.4em 1.4em 1.2em;
   transition: box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease;
   overflow: hidden;
@@ -162,6 +179,7 @@ html[data-theme="dark"] {
   color: #a67c1e;
   border: 1px solid rgba(184, 134, 11, 0.3);
   flex-shrink: 0;
+  white-space: nowrap;
   transition: all 0.2s ease;
 
   &:hover {
@@ -216,6 +234,8 @@ html[data-theme="dark"] {
   color: var(--global-link-color);
   border: 1px solid var(--global-border-color);
   transition: $global-transition;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 html[data-theme="dark"] .social-post-card__tag {
