@@ -12,7 +12,7 @@ I am a fifth year Computer Science PhD student at Johns Hopkins University (JHU)
 
 My research aims to achieve efficient and reliable adaptation in AI models.
 
-I have 3+ years of industry experience at companies like Adobe, Microsoft and Siemens.
+I have 3+ years of industry experience at multiple companies (Qualcomm, Adobe, Microsoft and Siemens).
 
 Previously, I received a Bachelors degree in Computer Science from [IIT Mandi](https://www.iitmandi.ac.in).
 
