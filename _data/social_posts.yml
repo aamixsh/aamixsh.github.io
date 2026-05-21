@@ -7,41 +7,17 @@
 #   title:       A short descriptive title shown above the embed
 #   description: Optional one-liner shown below the title (markdown supported)
 #   date:        Date string shown as metadata (e.g. "May 2026")
+#   highlights:  Optional list of publication venues/highlights (e.g., ["ICLR 2026"])
 #   tags:        Optional list of topic tags
 # =============================================================================
-
-# - platform: "x"
-#   embed_id: "1862295411037556741"
-#   title: "Efficient LLM Adaptation"
-#   description: "Thread summarizing our latest findings on parameter-efficient fine-tuning."
-#   date: "Nov 2024"
-#   tags:
-#     - LLMs
-#     - Adaptation
-
-# - platform: "youtube"
-#   embed_id: "dQw4w9WgXcQ"
-#   title: "Research Talk — Reliable AI Adaptation"
-#   description: "Conference talk on achieving efficient and reliable adaptation in AI models."
-#   date: "Sep 2024"
-#   tags:
-#     - Talk
-#     - Adaptation
-
-# - platform: "x"
-#   embed_id: "1862295411037556741"
-#   title: "Distribution Shift & Robustness"
-#   description: "Key takeaways from our work on handling distribution shift in deployed models."
-#   date: "Jun 2024"
-#   tags:
-#     - Robustness
-#     - Distribution Shift
 
 - platform: "x"
   embed_id: "2056357773521084767"
   title: "Steered LLM Activations are Non-Surjective"
-  description: "We show that almost surely, there is no prompt that can produce steered activation states."
-  date: "May 2026"
+  # description: "We show that almost surely, there is no prompt that can produce steered activation states."
+  # date: "May 2026"
+  highlights:
+    - Pre-print
   tags:
     - LLMs
     - AI Safety
@@ -52,8 +28,10 @@
 - platform: "x"
   embed_id: "1973854124627337437"
   title: "ICL Activation Alignment improves Supervised Fine-Tuning"
-  description: "We show that in-context learning ability of LLMs can be used as self-supervision signals to improve the quality of adaptation."
-  date: "October 2025"
+  # description: "We show that in-context learning ability of LLMs can be used as self-supervision signals to improve the quality of adaptation."
+  # date: "October 2025"
+  highlights:
+    - ICLR 2026
   tags:
     - LLMs
     - In-Context Learning
@@ -61,3 +39,38 @@
     - Supervised Fine-Tuning
     - Sample Efficiency
     - Calibration
+
+- platform: "x"
+  embed_id: "1990779976850039145"
+  title: "Genomic next-token predictors are In-Context Learners"
+  # description: "We show that in-context learning ability of LLMs can be used as self-supervision signals to improve the quality of adaptation."
+  # date: "October 2025"
+  highlights:
+    - TMLR 2026
+  tags:
+    - LLMs
+    - Genomics
+    - In-Context Learning
+    - Pretraining
+
+- platform: "x"
+  embed_id: "1956011215240458512"
+  title: "ODD: Overlap aware estimation of performance under distribution shift"
+  # description: "We show that in-context learning ability of LLMs can be used as self-supervision signals to improve the quality of adaptation."
+  # date: "October 2025"
+  highlights:
+    - UAI 2025
+  tags:
+    - Distribution Shifts
+    - Adaptation Bounds
+    - Reliability
+
+- platform: "youtube"
+  embed_id: "-yo2672UikU"
+  title: "Do pretrained transformers learn in context using Gradient Descent?"
+  # description: "We show that in-context learning ability of LLMs can be used as self-supervision signals to improve the quality of adaptation."
+  # date: "October 2025"
+  highlights:
+    - ICML 2024 (Oral)
+  tags:
+    - In-Context Learning

@@ -31,6 +31,15 @@
         {% endif %}
       </div>
 
+      <!-- Highlights (e.g. publication venues) -->
+      {% if post.highlights.size > 0 %}
+        <div class="social-post-card__highlights">
+          {% for highlight in post.highlights %}
+            <span class="social-post-card__highlight-tag">{{ highlight }}</span>
+          {% endfor %}
+        </div>
+      {% endif %}
+
       <!-- Card title & description -->
       <h3 class="social-post-card__title">{{ post.title }}</h3>
       {% if post.description %}
