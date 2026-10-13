@@ -1,17 +1,24 @@
 % Aayush Mishra — CV
-% Build: pdflatex cv.tex   (uses only packages bundled with every TeX distribution)
+% Build: pdflatex cv.tex   (Overleaf or full TeX Live; BasicTeX needs the fonts listed in the README)
 \documentclass[10pt,letterpaper]{article}
 
 \usepackage[left=0.65in,right=0.65in,top=0.55in,bottom=0.5in]{geometry}
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
-\usepackage[default,semibold]{sourcesanspro}
+\usepackage[sfdefault,semibold,scale=0.95]{plex-sans}
+\renewcommand{\familydefault}{\sfdefault}
 \usepackage{microtype}
 \usepackage{xcolor}
-\usepackage[hidelinks,pdftitle={Aayush Mishra - CV},pdfauthor={Aayush Mishra}]{hyperref}
+\usepackage{graphicx}
+\graphicspath{{../images/logos/}}
+\usepackage{tikz}
+\usetikzlibrary{svg.path}
+\usepackage[hidelinks,pdftitle={Aayush Mishra - CV},pdfauthor={Aayush Mishra},
+  pdfkeywords={AI safety, interpretability, misalignment monitoring, efficient LLMs, looped language models, activation steering}]{hyperref}
 \input{glyphtounicode}\pdfgentounicode=1 % keep the PDF text ATS-readable
 
 \definecolor{accent}{HTML}{1D4ED8}
+\definecolor{oral}{HTML}{C2410C}
 \definecolor{muted}{HTML}{6B7280}
 \definecolor{hair}{HTML}{D1D5DB}
 
@@ -21,20 +28,38 @@
 
 % ---------------------------------------------------------------- macros ---
 \newcommand{\sep}{\enspace{\color{hair}|}\enspace}
-\newcommand{\me}{\textbf{Aayush Mishra}}
+\newcommand{\me}{\textit{Aayush Mishra}}
 \newcommand{\link}[2]{\href{#1}{\color{accent}#2}}
+\newcommand{\oral}[1]{{\color{oral}\bfseries #1}}
+% Month name of the build date, for the "Last updated" stamp
+\newcommand{\monthname}{\ifcase\month\or January\or February\or March\or April\or May\or June\or July\or August\or September\or October\or November\or December\fi}
+
+% Icons: the same 24x24 SVG paths as the website, drawn with TikZ (sized for \small text:
+% 24 units x 0.32 = 7.7pt tall; yscale=-1 because SVG's y axis points down).
+\newcommand{\svgfill}[1]{\tikz[baseline=-6.4pt,scale=0.32,yscale=-1]\fill svg {#1};}
+\newcommand{\svgline}[1]{\tikz[baseline=-6.4pt,scale=0.32,yscale=-1]\draw[line width=0.65pt] svg {#1};}
+\newcommand{\iconglobe}{\svgline{M 22 12 a 10 10 0 1 1 -20 0 10 10 0 0 1 20 0 z M 2 12 h 20 M 12 2 a 14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0 -20}}
+\newcommand{\iconscholar}{\svgfill{M 5.242 13.769 0 9.5 12 0 l 12 9.5 -5.242 4.269 C 17.548 11.249 14.978 9.5 12 9.5 c -2.977 0 -5.548 1.748 -6.758 4.269 z M 12 10 a 7 7 0 1 0 0 14 7 7 0 0 0 0 -14 z}}
+\newcommand{\icongithub}{\svgfill{M 12 0.297 c -6.63 0 -12 5.373 -12 12 0 5.303 3.438 9.8 8.205 11.385 0.6 0.113 0.82 -0.258 0.82 -0.577 0 -0.285 -0.01 -1.04 -0.015 -2.04 -3.338 0.724 -4.042 -1.61 -4.042 -1.61 C 4.422 18.07 3.633 17.7 3.633 17.7 c -1.087 -0.744 0.084 -0.729 0.084 -0.729 1.205 0.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495 0.998 0.108 -0.776 0.417 -1.305 0.76 -1.605 -2.665 -0.3 -5.466 -1.332 -5.466 -5.93 0 -1.31 0.465 -2.38 1.235 -3.22 -0.135 -0.303 -0.54 -1.523 0.105 -3.176 0 0 1.005 -0.322 3.3 1.23 0.96 -0.267 1.98 -0.399 3 -0.405 1.02 0.006 2.04 0.138 3 0.405 2.28 -1.552 3.285 -1.23 3.285 -1.23 0.645 1.653 0.24 2.873 0.12 3.176 0.765 0.84 1.23 1.91 1.23 3.22 0 4.61 -2.805 5.625 -5.475 5.92 0.42 0.36 0.81 1.096 0.81 2.22 0 1.606 -0.015 2.896 -0.015 3.286 0 0.315 0.21 0.69 0.825 0.57 C 20.565 22.092 24 17.592 24 12.297 c 0 -6.627 -5.373 -12 -12 -12 z}}
+\newcommand{\iconx}{\svgfill{M 18.901 1.153 h 3.68 l -8.04 9.19 L 24 22.846 h -7.406 l -5.8 -7.584 -6.638 7.584 H 0.474 l 8.6 -9.83 L 0 1.154 h 7.594 l 5.243 6.932 Z M 17.61 20.644 h 2.039 L 6.486 3.24 H 4.298 Z}}
+\newcommand{\iconmail}{\svgline{M 4 4 h 16 a 2 2 0 0 1 2 2 v 12 a 2 2 0 0 1 -2 2 H 4 a 2 2 0 0 1 -2 -2 V 6 a 2 2 0 0 1 2 -2 z m 18 3 -8.97 5.7 a 1.94 1.94 0 0 1 -2.06 0 L 2 7}}
+\newcommand{\iconlinkedin}{\svgfill{M 20.447 20.452 h -3.554 v -5.569 c 0 -1.328 -0.027 -3.037 -1.852 -3.037 -1.853 0 -2.136 1.445 -2.136 2.939 v 5.667 H 9.351 V 9 h 3.414 v 1.561 h 0.046 c 0.477 -0.9 1.637 -1.85 3.37 -1.85 3.601 0 4.267 2.37 4.267 5.455 v 6.286 z M 5.337 7.433 a 2.062 2.062 0 1 1 0 -4.125 2.062 2.062 0 0 1 0 4.125 z m 1.782 13.019 H 3.555 V 9 h 3.564 v 11.452 z M 22.225 0 H 1.771 C 0.792 0 0 0.774 0 1.729 v 20.542 C 0 23.227 0.792 24 1.771 24 h 20.451 C 23.2 24 24 23.227 24 22.271 V 1.729 C 24 0.774 23.2 0 22.222 0 h 0.003 z}}
+% \iconlink{url}{icon}{label}
+\newcommand{\iconlink}[3]{\href{#1}{\color{accent}#2\,#3}}
 
 % \section{Title}
-\renewcommand{\section}[1]{\par\vspace{9pt}%
+\renewcommand{\section}[1]{\par\vspace{8pt}%
   {\color{accent}\bfseries\footnotesize\MakeUppercase{#1}}\par\vspace{2.5pt}%
   {\color{hair}\hrule height 0.6pt}\vspace{6pt}}
 
-% \job{Organization}{Role}{Location}{Dates}
-\newcommand{\job}[4]{{\bfseries #1}\enspace#2\enspace{\color{muted}#3}\hfill{\color{muted}#4}\par}
+% \logo{name}: a small tile from images/logos/ placed before an organization name
+\newcommand{\logo}[1]{\raisebox{-0.22em}{\includegraphics[height=1.15em]{#1}}\,}
+% \job[logo]{Organization}{Role}{Location}{Dates}
+\NewDocumentCommand{\job}{o m m m m}{\IfValueT{#1}{\logo{#1}}{\bfseries #2}\enspace#3\enspace{\color{muted}#4}\hfill{\color{muted}#5}\par}
 
 % \pub{Title}{Authors}{Venue and links}{Year}
 \newcommand{\pub}[4]{{\bfseries #1}\hfill{\color{muted}#4}\par
-  {\small #2\sep #3}\par\vspace{4.5pt}}
+  {\small #2\sep #3}\par\vspace{3.5pt}}
 
 \newenvironment{bullets}
   {\begin{list}{\color{muted}\textbullet}{\setlength{\leftmargin}{11pt}\setlength{\labelsep}{5pt}%
@@ -44,69 +69,71 @@
 % ------------------------------------------------------------------ body ---
 \begin{document}
 
-{\fontsize{22}{24}\selectfont\bfseries Aayush Mishra}\par\vspace{6pt}
+{\fontsize{22}{24}\selectfont\bfseries Aayush Mishra}\hspace{10pt}{\fontsize{11}{15}\selectfont\color{muted}Efficient and Reliable AI}\hfill{\footnotesize\color{muted}Last updated: \monthname\ \the\year}\par\vspace{6pt}
 {\small
-\link{mailto:amishr24@jhu.edu}{amishr24@jhu.edu}\sep
-\link{https://aamixsh.github.io}{aamixsh.github.io}\sep
-\link{https://scholar.google.com/citations?user=qd0DNpEAAAAJ}{Google Scholar}\sep
-\link{https://github.com/aamixsh}{github.com/aamixsh}\sep
-\link{https://linkedin.com/in/aamixsh}{linkedin.com/in/aamixsh}}\par\vspace{3pt}
-{\small\color{muted}Efficient and reliable AI: activation steering, adaptive computation, parameter-efficient adaptation}
+\iconlink{mailto:amishr24@jhu.edu}{\iconmail}{amishr24@jhu.edu}\sep
+\iconlink{https://aamixsh.github.io}{\iconglobe}{aamixsh.github.io}\sep
+\iconlink{https://linkedin.com/in/aamixsh}{\iconlinkedin}{linkedin.com/in/aamixsh}\sep
+\iconlink{https://scholar.google.com/citations?user=qd0DNpEAAAAJ}{\iconscholar}{Scholar}\sep
+\iconlink{https://github.com/aamixsh}{\icongithub}{GitHub}\sep
+\href{https://x.com/aamixsh}{\color{accent}\iconx}}\par\vspace{3pt}
+{\small Efficient (post) training, inference and architectures\sep AI Safety\sep Interpretability\sep Misalignment Oversight \& Control}
 
 \section{Education}
-\job{Johns Hopkins University}{Ph.D., Computer Science}{advised by Anqi Liu}{Jan 2022 -- present}
-\hspace{11pt}M.S.E., Computer Science\sep GPA 4.0/4.0 (\link{https://aamixsh.github.io/files/grad_transcript.pdf}{transcript})\hfill{\color{muted}Dec 2023}\par\vspace{4pt}
-\job{IIT Mandi}{B.Tech., Computer Science \& Engineering, minor in Management}{}{Aug 2015 -- Jun 2019}
+\job[jhu]{Johns Hopkins University}{Ph.D., Computer Science}{}{Jan 2022 -- present}
+\hspace{11pt}M.S.E., Computer Science\sep GPA 4.0/4.0 (\link{https://aamixsh.github.io/files/grad_degree_instruction_transcript.pdf}{transcript})\hfill{\color{muted}Dec 2023}\par\vspace{4pt}
+\job[iitmandi]{IIT Mandi}{B.Tech., Computer Science \& Engineering, minor in Management}{}{Aug 2015 -- Jun 2019}
 \hspace{11pt}GPA 8.88/10 (\link{https://aamixsh.github.io/files/undergrad_degree_transcripts_instructions.pdf}{transcript})\par
 
 \section{Experience}
-\job{MATS}{Research Fellow (11.0), OpenAI Safety Team}{Berkeley, CA}{Sep 2026 -- present}
+\job[mats]{MATS x \logo{openai}OpenAI}{AI Safety Research Fellow (11.0)}{Berkeley, CA}{Sep 2026 -- present}
 \begin{bullets}
-  \item Researching \emph{natural} activation steering for reasoning and looped LMs, extending my result that standard steering drives models into internal states no prompt can reach.
+  \item Reliable activation probes for misalignment monitoring in LLMs.
+  \item Steerability and Interpretability of looped reasoning models.
 \end{bullets}
 
-\job{Qualcomm AI Research}{AI Research Intern}{Amsterdam, NL}{May -- Sep 2026}
+\job[qualcomm]{Qualcomm}{AI Research Intern}{Amsterdam, NL}{May -- Sep 2026}
 \begin{bullets}
-  \item Made early-exit computation practical in Looped LMs (Ouro): a best-available KV-caching strategy plus an effort-aware exit objective cut FLOPs and KV-cache memory by up to 30\% at full-depth quality.
-  \item Filed 3 invention disclosures; first-author paper on the work (\link{https://arxiv.org/abs/2610.09013}{arXiv}).
+  \item Made Looped LMs (Ouro) truly dynamic: a best-available KV-caching strategy plus a difficulty-aware exit objective.
+  \item \textit{Cut FLOPs and KV-cache memory by up to 30\% at full-depth quality}. Filed 3 invention disclosures.
 \end{bullets}
 
-\job{Adobe}{AI Research Intern}{College Park, MD}{May -- Aug 2024}
+\job[adobe]{Adobe}{AI Research Intern}{College Park, MD}{May -- Aug 2024}
 \begin{bullets}
-  \item Co-developed EigenLoRA, which recycles trained LoRA adapters into a shared principal subspace: new tasks train up to 100$\times$ fewer parameters and multi-adapter inference uses $\sim$18$\times$ less memory, for on-device LLM and diffusion models.
+  \item Co-developed EigenLoRA, which recycles trained LoRA adapters into a shared principal subspace: \textit{new tasks train up to 100$\times$ fewer parameters and multi-adapter inference uses $\sim$18$\times$ less memory}, for on-device LLM and diffusion models.
 \end{bullets}
 
-\job{Microsoft}{Data \& Applied Scientist, Bing Shopping}{Hyderabad, India}{Aug 2021 -- Jan 2022}
+\job[microsoft]{Microsoft}{Data \& Applied Scientist, Bing Shopping}{Hyderabad, India}{Aug 2021 -- Jan 2022}
 \begin{bullets}
   \item Built a query-to-product-category classifier over $\sim$18k classes and a relevance metric to improve offer ranking.
 \end{bullets}
 
-\job{Siemens}{Research Engineer}{Bengaluru, India}{Jul 2019 -- Aug 2021}
+\job[siemens]{Siemens}{Research Engineer}{Bengaluru, India}{Jul 2019 -- Aug 2021}
 \begin{bullets}
-  \item Developed a CNN explainability and compression algorithm for edge deployment; filed 3 invention disclosures.
+  \item Developed a CNN explainability and compression algorithm for edge deployment; Filed 3 invention disclosures.
   \item Trained an RL agent to surface edge-case safety violations of self-driving agents in simulation.
   \item Internships (2017--18): semantic code search with LSA; NLP classifier for Siemens' internal social network.
 \end{bullets}
 
 \section{Selected Publications}
 \pub{Enabling Dynamic Computation in Looped LMs}
-  {\me, Arnau Padrés Masdemont, et al.}{\link{https://arxiv.org/abs/2610.09013}{arXiv}}{2026}
+  {\me, et al.}{Preprint\sep\link{https://arxiv.org/abs/2610.09013}{paper}\sep\link{https://x.com/i/status/2109660363792724158}{thread}}{2026}
 \pub{Steered LLM Activations are Non-Surjective}
-  {\me, Daniel Khashabi, Anqi Liu}{\link{https://arxiv.org/abs/2604.09839}{arXiv}; Sci4DL, Re-Align @ ICLR}{2026}
+  {\me, Daniel Khashabi, Anqi Liu}{Sci4DL \& Re-Align @ ICLR\sep\link{https://arxiv.org/abs/2604.09839}{paper}\sep\link{https://github.com/aamixsh/invertsteer}{code}\sep\link{https://x.com/i/status/2056357773521084767}{thread}}{2026}
 \pub{IA2: Alignment with ICL Activations Improves Supervised Fine-Tuning}
-  {\me, Daniel Khashabi, Anqi Liu}{\link{https://arxiv.org/abs/2509.22621}{ICLR}}{2026}
+  {\me, Daniel Khashabi, Anqi Liu}{ICLR\sep\link{https://arxiv.org/abs/2509.22621}{paper}\sep\link{https://github.com/aamixsh/ia2}{code}\sep\link{https://x.com/i/status/1973854124627337437}{thread}}{2026}
 \pub{Genomic Next-Token Predictors are In-Context Learners}
-  {Nathan Breslow, \me, et al.}{\link{https://openreview.net/pdf?id=KmNFx8DmaZ}{TMLR}; MLGenX (Oral), Sci4DL @ ICLR}{2026}
+  {Nathan Breslow, \me, et al.}{TMLR; \oral{Oral} @ MLGenX (ICLR)\sep\link{https://openreview.net/pdf?id=KmNFx8DmaZ}{paper}\sep\link{https://github.com/N8python/shared-emergence-icl-modalities}{code}\sep\link{https://x.com/i/status/1990779976850039145}{thread}}{2026}
 \pub{ODD: Overlap-aware Estimation of Model Performance under Distribution Shift}
-  {\me, Anqi Liu}{\link{https://proceedings.mlr.press/v286/mishra25a.html}{UAI}}{2025}
+  {\me, Anqi Liu}{UAI\sep\link{https://proceedings.mlr.press/v286/mishra25a.html}{paper}\sep\link{https://github.com/aamixsh/odd}{code}\sep\link{https://x.com/i/status/1956011215240458512}{thread}}{2025}
 \pub{EigenLoRA: Recycle Trained Adapters for Resource-Efficient Adaptation and Inference}
-  {\me$^*$, Prakhar Kaushik$^*$, et al.}{\link{https://openreview.net/pdf?id=KxGGZag9gW}{Preprint}}{2024}
+  {\me$^*$, Prakhar Kaushik$^*$, et al.}{Preprint\sep\link{https://openreview.net/pdf?id=KxGGZag9gW}{paper}}{2024}
 \pub{Do Pretrained Transformers Learn In-Context by Gradient Descent?}
-  {\me$^*$, Lingfeng Shen$^*$, Daniel Khashabi}{\link{https://arxiv.org/abs/2310.08540}{ICML (Oral)}}{2024}
+  {\me$^*$, Lingfeng Shen$^*$, Daniel Khashabi}{ICML \oral{Oral}\sep\link{https://arxiv.org/abs/2310.08540}{paper}\sep\link{https://www.youtube.com/watch?v=-yo2672UikU}{talk}}{2024}
 
 \section{Skills \& Service}
 {\bfseries Tools}\enspace Python, C++, PyTorch, Hugging Face Transformers/TRL, data engineering\par\vspace{2pt}
-{\bfseries Methods}\enspace activation steering, interpretability, adaptive computation, KV-cache efficiency, LoRA/PEFT, self-distillation\par\vspace{2pt}
+{\bfseries Methods}\enspace activation steering/probing, interpretability, adaptive computation, KV-cache efficiency, LoRA/PEFT, self-distillation\par\vspace{2pt}
 {\bfseries Reviewer}\enspace ICML (Silver Reviewer), ICLR, NeurIPS, UAI, TMLR\par
 
 \end{document}

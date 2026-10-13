@@ -3,19 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Aayush Mishra · Efficient &amp; Reliable AI · Johns Hopkins</title>
-<meta name="description" content="Aayush Mishra is a Computer Science PhD student at Johns Hopkins University and MATS fellow (OpenAI Safety Team) researching efficient and reliable AI: activation steering, looped language models, and parameter-efficient adaptation.">
+<title>Aayush Mishra</title>
+<meta name="description" content="Aayush Mishra is a Computer Science PhD student at Johns Hopkins University and MATS fellow (OpenAI Safety Team) researching efficient and reliable AI.">
 <meta name="author" content="Aayush Mishra">
 <link rel="canonical" href="https://aamixsh.github.io/">
 <meta name="color-scheme" content="light dark">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.png" type="image/png" sizes="96x96">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 
 <meta property="og:type" content="profile">
 <meta property="og:site_name" content="Aayush Mishra">
-<meta property="og:title" content="Aayush Mishra · Efficient &amp; Reliable AI">
-<meta property="og:description" content="PhD student at Johns Hopkins and MATS fellow researching activation steering, looped language models, and parameter-efficient adaptation.">
+<meta property="og:title" content="Aayush Mishra">
+<meta property="og:description" content="PhD student at Johns Hopkins and MATS fellow researching efficient and reliable AI.">
 <meta property="og:url" content="https://aamixsh.github.io/">
-<meta property="og:image" content="https://aamixsh.github.io/images/profile.jpg">
+<meta property="og:image" content="https://aamixsh.github.io/images/profile_new.jpg">
 <meta property="profile:first_name" content="Aayush">
 <meta property="profile:last_name" content="Mishra">
 <meta name="twitter:card" content="summary">
@@ -27,7 +28,7 @@
   "@type": "Person",
   "name": "Aayush Mishra",
   "url": "https://aamixsh.github.io/",
-  "image": "https://aamixsh.github.io/images/profile.jpg",
+  "image": "https://aamixsh.github.io/images/profile_new.jpg",
   "email": "mailto:amishr24@jhu.edu",
   "jobTitle": "PhD Student, Computer Science",
   "affiliation": [
@@ -38,7 +39,7 @@
     {"@type": "CollegeOrUniversity", "name": "Johns Hopkins University"},
     {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Mandi"}
   ],
-  "knowsAbout": ["AI safety", "Activation steering", "Interpretability", "Efficient language models", "Looped language models", "Adaptive computation", "Parameter-efficient fine-tuning", "In-context learning", "Distribution shift"],
+  "knowsAbout": ["AI safety", "Interpretability", "Efficient language models", "Looped language models", "Adaptive computation", "Parameter-efficient fine-tuning", "In-context learning", "Distribution shift"],
   "sameAs": [
     "https://scholar.google.com/citations?user=qd0DNpEAAAAJ",
     "https://github.com/aamixsh",
@@ -48,21 +49,27 @@
 }
 </script>
 
+<script>try { var t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
 <style>
 :root {
   --bg: #ffffff; --fg: #111827; --muted: #6b7280; --faint: #9ca3af;
   --line: #e5e7eb; --accent: #1d4ed8; --accent-soft: #eef2ff;
+  --oral: #c2410c; --oral-soft: #ffedd5;
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
     --bg: #0c0e13; --fg: #e5e7eb; --muted: #9ca3af; --faint: #6b7280;
     --line: #1f2430; --accent: #8ab4f8; --accent-soft: #162036;
+    --oral: #fdba74; --oral-soft: #2e1a0c;
   }
 }
 :root[data-theme="dark"] {
   --bg: #0c0e13; --fg: #e5e7eb; --muted: #9ca3af; --faint: #6b7280;
   --line: #1f2430; --accent: #8ab4f8; --accent-soft: #162036;
+  --oral: #fdba74; --oral-soft: #2e1a0c;
+  color-scheme: dark;
 }
+:root[data-theme="light"] { color-scheme: light; }
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
@@ -70,17 +77,36 @@ body {
   font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
-main { max-width: 680px; margin: 0 auto; padding: clamp(40px, 10vw, 88px) 20px 40px; }
+main { max-width: 720px; margin: 0 auto; padding: clamp(40px, 10vw, 88px) 20px 40px; }
+
+.theme {
+  flex: none; display: grid; place-items: center;
+  width: 34px; height: 34px; padding: 0; border: 1px solid var(--line); border-radius: 50%;
+  background: transparent; color: var(--muted); cursor: pointer;
+}
+.theme:hover { color: var(--fg); background: var(--accent-soft); }
+.theme svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.theme .sun { display: none; }
+:root[data-theme="dark"] .theme .sun { display: block; }
+:root[data-theme="dark"] .theme .moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme .sun { display: block; }
+  :root:not([data-theme="light"]) .theme .moon { display: none; }
+}
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 
 .intro { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; }
+.intro > div { flex: 1; min-width: 0; }
+.name-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
 .avatar { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex: none; background: var(--line); }
-h1 { font-size: 2rem; line-height: 1.15; letter-spacing: -0.02em; font-weight: 650; margin: 0 0 12px; }
+h1 { font-size: 2rem; line-height: 1.15; letter-spacing: -0.02em; font-weight: 650; margin: 0; }
 .links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; font-size: 0.95rem; }
-.links a { color: var(--muted); }
-.links a:hover { color: var(--fg); }
-.links a.cv { color: var(--bg); background: var(--fg); padding: 2px 14px; border-radius: 999px; font-weight: 600; }
+.links a { color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.links a:hover { color: var(--fg); text-decoration: none; }
+.links svg { width: 15px; height: 15px; flex: none; fill: currentColor; }
+.links svg.stroke { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.links a.cv { color: var(--bg); background: var(--fg); padding: 2px 14px 2px 11px; border-radius: 999px; font-weight: 600; }
 .links a.cv:hover { text-decoration: none; opacity: 0.85; }
 .bio p { margin: 0 0 14px; }
 
@@ -91,7 +117,22 @@ h2 {
 }
 ol { list-style: none; margin: 0; padding: 0; }
 
-.pubs li { margin-bottom: 24px; }
+.pubs li { display: grid; grid-template-columns: minmax(0, 1fr) 200px; gap: 22px; align-items: start; margin-bottom: 28px; }
+.thumb {
+  position: relative; display: block; overflow: hidden;
+  border-radius: 10px; border: 1px solid var(--line); background: #fff;
+}
+.thumb img { display: block; width: 100%; height: auto; transition: transform 0.3s ease; }
+.thumb:hover img { transform: scale(1.03); }
+.thumb .tag {
+  position: absolute; right: 5px; top: 5px; display: inline-flex; align-items: center; gap: 4px;
+  padding: 1px 7px 1px 6px; border-radius: 999px; background: rgba(17, 24, 39, 0.82);
+  color: #fff; font-size: 0.66rem; font-weight: 600; line-height: 1.5;
+}
+.thumb .tag svg { width: 9px; height: 9px; fill: currentColor; }
+.thumb .tag svg.stroke { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linejoin: round; }
+.thumb .tag { opacity: 0; transform: translateY(-2px); transition: opacity 0.2s ease, transform 0.2s ease; }
+.thumb:hover .tag { opacity: 1; transform: none; }
 .pubs .t { color: var(--fg); font-weight: 600; line-height: 1.4; }
 .pubs .t:hover { color: var(--accent); text-decoration: none; }
 .pubs .a { color: var(--muted); font-size: 0.9rem; margin-top: 3px; }
@@ -100,13 +141,14 @@ ol { list-style: none; margin: 0; padding: 0; }
 .pubs .v { color: var(--fg); font-weight: 500; }
 .badge {
   font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
-  color: var(--accent); background: var(--accent-soft); padding: 1px 8px; border-radius: 999px;
+  color: var(--oral); background: var(--oral-soft); padding: 1px 8px; border-radius: 999px;
 }
 .more { font-size: 0.9rem; margin: 4px 0 0; }
 
 .xp li { display: grid; grid-template-columns: 92px 1fr; gap: 16px; margin-bottom: 22px; }
 .when { color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; padding-top: 2px; }
 .org { font-weight: 600; }
+.logo { width: 18px; height: 18px; border-radius: 4px; vertical-align: -3px; margin-right: 6px; }
 .role { color: var(--muted); }
 .xp p { margin: 3px 0 0; font-size: 0.95rem; }
 
@@ -117,8 +159,16 @@ footer {
 
 @media (max-width: 560px) {
   .intro { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .intro > div { width: 100%; }
   .avatar { width: 88px; height: 88px; }
-  .links { gap: 6px 12px; }
+  .links { gap: 8px 20px; }
+  .links a:not(.cv) svg { width: 19px; height: 19px; }
+  .links a:not(.cv) span {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); white-space: nowrap;
+  }
+  .pubs li { grid-template-columns: 1fr; gap: 10px; }
+  .thumb { order: -1; }
   .xp li { grid-template-columns: 1fr; gap: 2px; }
 }
 </style>
@@ -127,62 +177,89 @@ footer {
 <main>
 
 <header class="intro">
-  <img class="avatar" src="images/profile.jpg" alt="Photo of Aayush Mishra" width="104" height="104">
+  <img class="avatar" src="images/avatar.jpg" alt="Photo of Aayush Mishra" width="104" height="104">
   <div>
-    <h1>Aayush Mishra</h1>
+    <div class="name-row">
+      <h1>Aayush Mishra</h1>
+      <button class="theme" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+    </div>
     <nav class="links" aria-label="Profiles">
-      <a class="cv" href="files/CV.pdf">CV</a>
-      <a href="https://scholar.google.com/citations?user=qd0DNpEAAAAJ">Scholar</a>
-      <a href="https://github.com/aamixsh">GitHub</a>
-      <a href="https://www.linkedin.com/in/aamixsh">LinkedIn</a>
-      <a href="https://x.com/aamixsh">X</a>
-      <a href="mailto:amishr24@jhu.edu">Email</a>
+      <a class="cv" href="files/CV.pdf"><svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg><span>CV</span></a>
+      <a href="https://scholar.google.com/citations?user=qd0DNpEAAAAJ"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg><span>Scholar</span></a>
+      <a href="https://github.com/aamixsh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg><span>GitHub</span></a>
+      <a href="https://www.linkedin.com/in/aamixsh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg><span>LinkedIn</span></a>
+      <a href="https://x.com/aamixsh"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+      <a href="mailto:amishr24@jhu.edu"><svg class="stroke" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></a>
     </nav>
   </div>
 </header>
 
 <div class="bio">
-  <p>I'm a fifth-year Computer Science PhD student at <a href="https://www.cs.jhu.edu">Johns Hopkins University</a>, advised by <a href="https://anqiliu-ai.github.io">Anqi (Angie) Liu</a> and mentored by <a href="https://danielkhashabi.com">Daniel Khashabi</a>. I'm currently a <a href="https://www.matsprogram.org">MATS</a> 11.0 fellow in Berkeley, working with the OpenAI Safety Team on natural activation steering in reasoning and looped language models.</p>
-  <p>My research aims to achieve efficient and reliable adaptation in AI models. I have 3+ years of industry experience at Qualcomm, Adobe, Microsoft and Siemens, most recently enabling dynamic computation in looped LMs at Qualcomm AI Research. I received my B.Tech. in Computer Science from <a href="https://www.iitmandi.ac.in">IIT Mandi</a>.</p>
+  <p>I'm a fifth-year Computer Science PhD student at <a href="https://www.cs.jhu.edu">Johns Hopkins University</a>, advised by <a href="https://anqiliu-ai.github.io">Anqi (Angie) Liu</a> and co-mentored by <a href="https://danielkhashabi.com">Daniel Khashabi</a>. I'm currently a <a href="https://www.matsprogram.org">MATS</a> 11.0 fellow, mentored by <a href="https://www.matsprogram.org/mentor/etinger">Isak Etinger</a> from the OpenAI Safety Team.</p>
+  <p>My research focuses on <b>efficiency and reliablity in AI systems (specifically LLMs)</b>. I have 3+ years of industry AI research experience at Qualcomm, Adobe, Microsoft and Siemens. I received my bachelors in Computer Science from <a href="https://www.iitmandi.ac.in">IIT Mandi</a>.</p>
 </div>
 
 <section id="publications">
   <h2>Selected publications</h2>
   <ol class="pubs">
     <li>
-      <a class="t" href="https://arxiv.org/abs/2610.09013">Enabling Dynamic Computation in Looped LMs</a>
-      <div class="a"><b>Aayush Mishra</b>, Arnau Padrés Masdemont, Victor Conchello Vendrell, Jordi Ros Giralt, Arash Behboodi, Fabio Valerio Massoli</div>
-      <div class="m"><span class="v">Preprint 2026</span><a href="https://arxiv.org/abs/2610.09013">arXiv</a></div>
+      <div>
+        <a class="t" href="https://arxiv.org/abs/2610.09013">Enabling Dynamic Computation in Looped LMs</a>
+        <div class="a"><b>Aayush Mishra</b>, et al.</div>
+        <div class="m"><span class="v">Preprint 2026</span><a href="https://x.com/i/status/2109660363792724158">thread</a></div>
+      </div>
+      <a class="thumb" href="https://x.com/i/status/2109660363792724158" tabindex="-1" aria-hidden="true"><img src="images/thumbs/looped.jpg" alt="" width="400" height="225" loading="lazy" decoding="async"><span class="tag"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>Thread</span></a>
     </li>
     <li>
-      <a class="t" href="https://arxiv.org/abs/2604.09839">Steered LLM Activations are Non-Surjective</a>
-      <div class="a"><b>Aayush Mishra</b>, Daniel Khashabi, Anqi Liu</div>
-      <div class="m"><span class="v">Sci4DL &amp; Re-Align @ ICLR 2026</span><a href="https://arxiv.org/abs/2604.09839">arXiv</a><a href="https://x.com/i/status/2056357773521084767">thread</a></div>
+      <div>
+        <a class="t" href="https://arxiv.org/abs/2604.09839">Steered LLM Activations are Non-Surjective</a>
+        <div class="a"><b>Aayush Mishra</b>, Daniel Khashabi, Anqi Liu</div>
+        <div class="m"><span class="v">Sci4DL &amp; Re-Align @ ICLR 2026</span><a href="https://github.com/aamixsh/invertsteer">code</a><a href="https://x.com/i/status/2056357773521084767">thread</a></div>
+      </div>
+      <a class="thumb" href="https://x.com/i/status/2056357773521084767" tabindex="-1" aria-hidden="true"><img src="images/thumbs/steering.jpg" alt="" width="400" height="225" loading="lazy" decoding="async"><span class="tag"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>Thread</span></a>
     </li>
     <li>
-      <a class="t" href="https://arxiv.org/abs/2509.22621">IA2: Alignment with ICL Activations Improves Supervised Fine-Tuning</a>
-      <div class="a"><b>Aayush Mishra</b>, Daniel Khashabi, Anqi Liu</div>
-      <div class="m"><span class="v">ICLR 2026</span><a href="https://arxiv.org/abs/2509.22621">arXiv</a><a href="https://github.com/aamixsh/ia2">code</a><a href="https://x.com/i/status/1973854124627337437">thread</a></div>
+      <div>
+        <a class="t" href="https://arxiv.org/abs/2509.22621">IA2: Alignment with ICL Activations Improves Supervised Fine-Tuning</a>
+        <div class="a"><b>Aayush Mishra</b>, Daniel Khashabi, Anqi Liu</div>
+        <div class="m"><span class="v">ICLR 2026</span><a href="https://github.com/aamixsh/ia2">code</a><a href="https://x.com/i/status/1973854124627337437">thread</a></div>
+      </div>
+      <a class="thumb" href="https://x.com/i/status/1973854124627337437" tabindex="-1" aria-hidden="true"><img src="images/thumbs/ia2.jpg" alt="" width="400" height="225" loading="lazy" decoding="async"><span class="tag"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>Thread</span></a>
     </li>
     <li>
-      <a class="t" href="https://openreview.net/pdf?id=KmNFx8DmaZ">Genomic Next-Token Predictors are In-Context Learners</a>
-      <div class="a">Nathan Breslow, <b>Aayush Mishra</b>, et al.</div>
-      <div class="m"><span class="v">TMLR 2026</span><span class="badge">Oral @ MLGenX</span><a href="https://openreview.net/pdf?id=KmNFx8DmaZ">paper</a><a href="https://x.com/i/status/1990779976850039145">thread</a></div>
+      <div>
+        <a class="t" href="https://openreview.net/pdf?id=KmNFx8DmaZ">Genomic Next-Token Predictors are In-Context Learners</a>
+        <div class="a">Nathan Breslow, <b>Aayush Mishra</b>, et al.</div>
+        <div class="m"><span class="v">TMLR 2026</span><span class="badge">Oral @ MLGenX (ICLR 2026)</span><a href="https://github.com/N8python/shared-emergence-icl-modalities">code</a><a href="https://x.com/i/status/1990779976850039145">thread</a></div>
+      </div>
+      <a class="thumb" href="https://x.com/i/status/1990779976850039145" tabindex="-1" aria-hidden="true"><img src="images/thumbs/genomics.jpg" alt="" width="400" height="225" loading="lazy" decoding="async"><span class="tag"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>Thread</span></a>
     </li>
     <li>
-      <a class="t" href="https://proceedings.mlr.press/v286/mishra25a.html">ODD: Overlap-aware Estimation of Model Performance under Distribution Shift</a>
-      <div class="a"><b>Aayush Mishra</b>, Anqi Liu</div>
-      <div class="m"><span class="v">UAI 2025</span><a href="https://proceedings.mlr.press/v286/mishra25a.html">paper</a><a href="https://github.com/aamixsh/odd">code</a><a href="https://x.com/i/status/1956011215240458512">thread</a></div>
+      <div>
+        <a class="t" href="https://proceedings.mlr.press/v286/mishra25a.html">ODD: Overlap-aware Estimation of Model Performance under Distribution Shift</a>
+        <div class="a"><b>Aayush Mishra</b>, Anqi Liu</div>
+        <div class="m"><span class="v">UAI 2025</span><a href="https://github.com/aamixsh/odd">code</a><a href="https://x.com/i/status/1956011215240458512">thread</a></div>
+      </div>
+      <a class="thumb" href="https://x.com/i/status/1956011215240458512" tabindex="-1" aria-hidden="true"><img src="images/thumbs/odd.jpg" alt="" width="400" height="225" loading="lazy" decoding="async"><span class="tag"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg>Thread</span></a>
     </li>
     <li>
-      <a class="t" href="https://openreview.net/pdf?id=KxGGZag9gW">EigenLoRA: Recycle Trained Adapters for Resource-Efficient Adaptation and Inference</a>
-      <div class="a"><b>Aayush Mishra</b>*, Prakhar Kaushik*, et al.</div>
-      <div class="m"><span class="v">Preprint 2024</span><a href="https://openreview.net/pdf?id=KxGGZag9gW">paper</a></div>
+      <div>
+        <a class="t" href="https://openreview.net/pdf?id=KxGGZag9gW">EigenLoRA: Recycle Trained Adapters for Resource-Efficient Adaptation and Inference</a>
+        <div class="a"><b>Aayush Mishra</b>*, Prakhar Kaushik*, et al.</div>
+        <div class="m"><span class="v">Preprint 2024</span></div>
+      </div>
+      <a class="thumb" href="https://openreview.net/pdf?id=KxGGZag9gW" tabindex="-1" aria-hidden="true"><img src="images/thumbs/eigenlora.jpg" alt="" width="400" height="225" loading="lazy" decoding="async"><span class="tag"><svg class="stroke" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>Paper</span></a>
     </li>
     <li>
-      <a class="t" href="https://arxiv.org/abs/2310.08540">Do Pretrained Transformers Learn In-Context by Gradient Descent?</a>
-      <div class="a"><b>Aayush Mishra</b>*, Lingfeng Shen*, Daniel Khashabi</div>
-      <div class="m"><span class="v">ICML 2024</span><span class="badge">Oral</span><a href="https://arxiv.org/abs/2310.08540">arXiv</a><a href="https://www.youtube.com/watch?v=-yo2672UikU">talk</a></div>
+      <div>
+        <a class="t" href="https://arxiv.org/abs/2310.08540">Do Pretrained Transformers Learn In-Context by Gradient Descent?</a>
+        <div class="a"><b>Aayush Mishra</b>*, Lingfeng Shen*, Daniel Khashabi</div>
+        <div class="m"><span class="v">ICML 2024</span><span class="badge">Oral</span><a href="https://www.youtube.com/watch?v=-yo2672UikU">talk</a></div>
+      </div>
+      <a class="thumb" href="https://www.youtube.com/watch?v=-yo2672UikU" tabindex="-1" aria-hidden="true"><img src="images/thumbs/talk.jpg" alt="" width="400" height="225" loading="lazy" decoding="async"><span class="tag"><svg viewBox="0 0 24 24"><path d="M7 4.5v15l12.5-7.5z"/></svg>Talk</span></a>
     </li>
   </ol>
   <p class="more">* equal contribution · <a href="https://scholar.google.com/citations?user=qd0DNpEAAAAJ">Full list on Google Scholar →</a></p>
@@ -192,35 +269,51 @@ footer {
   <h2>Experience</h2>
   <ol class="xp">
     <li>
-      <span class="when">2026 – now</span>
-      <div><span class="org">MATS</span> <span class="role">· Research Fellow, OpenAI Safety Team</span>
-        <p>Natural activation steering for reasoning and looped language models.</p></div>
+      <span class="when">present</span>
+      <div><span class="org"><img class="logo" src="images/logos/mats.png" alt="" width="18" height="18">MATS x <img class="logo" src="images/logos/openai.png" alt="" width="18" height="18">OpenAI</span> <span class="role">· AI Safety Research Fellow (11.0)</span>
+        <p>Misalignment monitoring in LLMs, and steerability/interpretability of looped language models.</p></div>
     </li>
     <li>
       <span class="when">2026</span>
-      <div><span class="org">Qualcomm AI Research</span> <span class="role">· AI Research Intern</span>
-        <p>Made early exit practical in looped LMs, cutting FLOPs and KV-cache memory by up to 30% at full-depth quality. 3 invention disclosures.</p></div>
+      <div><span class="org"><img class="logo" src="images/logos/qualcomm.png" alt="" width="18" height="18">Qualcomm</span> <span class="role">· AI Research Intern</span>
+        <p>Made early exit practical in looped LMs, <i>cutting FLOPs and KV-cache memory by 25% at full-depth quality.</i></p></div>
     </li>
     <li>
       <span class="when">2024</span>
-      <div><span class="org">Adobe</span> <span class="role">· AI Research Intern</span>
-        <p>EigenLoRA: recycles trained LoRA adapters so new tasks train up to 100× fewer parameters, with ~18× less memory for multi-adapter inference.</p></div>
+      <div><span class="org"><img class="logo" src="images/logos/adobe.png" alt="" width="18" height="18">Adobe</span> <span class="role">· AI Research Intern</span>
+        <p>EigenLoRA: recycles trained LoRA adapters so <i>new tasks train up to 100× fewer parameters, with ~18× less memory for multi-adapter inference.</i></p></div>
     </li>
     <li>
       <span class="when">2021 – 22</span>
-      <div><span class="org">Microsoft</span> <span class="role">· Data &amp; Applied Scientist, Bing Shopping</span>
+      <div><span class="org"><img class="logo" src="images/logos/microsoft.png" alt="" width="18" height="18">Microsoft</span> <span class="role">· Data &amp; Applied Scientist, Bing Shopping</span>
         <p>Query-to-product-category classification over ~18k classes and a relevance metric for offer ranking.</p></div>
     </li>
     <li>
       <span class="when">2019 – 21</span>
-      <div><span class="org">Siemens</span> <span class="role">· Research Engineer</span>
+      <div><span class="org"><img class="logo" src="images/logos/siemens.png" alt="" width="18" height="18">Siemens</span> <span class="role">· Research Engineer</span>
         <p>CNN explainability and compression for edge deployment; an RL agent that finds safety violations of self-driving agents in simulation. 3 invention disclosures.</p></div>
     </li>
   </ol>
 </section>
 
-<footer>Last updated October 2026</footer>
+<footer>Last updated <time id="updated" datetime="2026-10">October 2026</time></footer>
 
 </main>
+<script>
+// Footer date follows the page's Last-Modified header (set by GitHub Pages on each deploy).
+var updated = new Date(document.lastModified), stamp = document.getElementById("updated");
+if (!isNaN(updated)) {
+  stamp.textContent = updated.toLocaleDateString("en-US", { month: "long", year: "numeric" });
+  stamp.dateTime = updated.toISOString().slice(0, 10);
+}
+
+document.querySelector(".theme").addEventListener("click", function () {
+  var root = document.documentElement;
+  var current = root.dataset.theme || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+  var next = current === "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  try { localStorage.setItem("theme", next); } catch (e) {}
+});
+</script>
 </body>
 </html>
