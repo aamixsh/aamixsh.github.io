@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aayush Mishra · Efficient &amp; Reliable AI · Johns Hopkins</title>
+<meta name="description" content="Aayush Mishra is a Computer Science PhD student at Johns Hopkins University and MATS fellow (OpenAI Safety Team) researching efficient and reliable AI: activation steering, looped language models, and parameter-efficient adaptation.">
+<meta name="author" content="Aayush Mishra">
+<link rel="canonical" href="https://aamixsh.github.io/">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Aayush Mishra">
+<meta property="og:title" content="Aayush Mishra · Efficient &amp; Reliable AI">
+<meta property="og:description" content="PhD student at Johns Hopkins and MATS fellow researching activation steering, looped language models, and parameter-efficient adaptation.">
+<meta property="og:url" content="https://aamixsh.github.io/">
+<meta property="og:image" content="https://aamixsh.github.io/images/profile.jpg">
+<meta property="profile:first_name" content="Aayush">
+<meta property="profile:last_name" content="Mishra">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@aamixsh">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Aayush Mishra",
+  "url": "https://aamixsh.github.io/",
+  "image": "https://aamixsh.github.io/images/profile.jpg",
+  "email": "mailto:amishr24@jhu.edu",
+  "jobTitle": "PhD Student, Computer Science",
+  "affiliation": [
+    {"@type": "CollegeOrUniversity", "name": "Johns Hopkins University"},
+    {"@type": "Organization", "name": "MATS"}
+  ],
+  "alumniOf": [
+    {"@type": "CollegeOrUniversity", "name": "Johns Hopkins University"},
+    {"@type": "CollegeOrUniversity", "name": "Indian Institute of Technology Mandi"}
+  ],
+  "knowsAbout": ["AI safety", "Activation steering", "Interpretability", "Efficient language models", "Looped language models", "Adaptive computation", "Parameter-efficient fine-tuning", "In-context learning", "Distribution shift"],
+  "sameAs": [
+    "https://scholar.google.com/citations?user=qd0DNpEAAAAJ",
+    "https://github.com/aamixsh",
+    "https://www.linkedin.com/in/aamixsh",
+    "https://x.com/aamixsh"
+  ]
+}
+</script>
+
+<style>
+:root {
+  --bg: #ffffff; --fg: #111827; --muted: #6b7280; --faint: #9ca3af;
+  --line: #e5e7eb; --accent: #1d4ed8; --accent-soft: #eef2ff;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0c0e13; --fg: #e5e7eb; --muted: #9ca3af; --faint: #6b7280;
+    --line: #1f2430; --accent: #8ab4f8; --accent-soft: #162036;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0c0e13; --fg: #e5e7eb; --muted: #9ca3af; --faint: #6b7280;
+  --line: #1f2430; --accent: #8ab4f8; --accent-soft: #162036;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 16px/1.65 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+main { max-width: 680px; margin: 0 auto; padding: clamp(40px, 10vw, 88px) 20px 40px; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+
+.intro { display: flex; align-items: center; gap: 24px; margin-bottom: 32px; }
+.avatar { width: 104px; height: 104px; border-radius: 50%; object-fit: cover; flex: none; background: var(--line); }
+h1 { font-size: 2rem; line-height: 1.15; letter-spacing: -0.02em; font-weight: 650; margin: 0 0 12px; }
+.links { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; font-size: 0.95rem; }
+.links a { color: var(--muted); }
+.links a:hover { color: var(--fg); }
+.links a.cv { color: var(--bg); background: var(--fg); padding: 2px 14px; border-radius: 999px; font-weight: 600; }
+.links a.cv:hover { text-decoration: none; opacity: 0.85; }
+.bio p { margin: 0 0 14px; }
+
+section { margin-top: 56px; }
+h2 {
+  font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600;
+  color: var(--muted); margin: 0 0 22px; padding-bottom: 10px; border-bottom: 1px solid var(--line);
+}
+ol { list-style: none; margin: 0; padding: 0; }
+
+.pubs li { margin-bottom: 24px; }
+.pubs .t { color: var(--fg); font-weight: 600; line-height: 1.4; }
+.pubs .t:hover { color: var(--accent); text-decoration: none; }
+.pubs .a { color: var(--muted); font-size: 0.9rem; margin-top: 3px; }
+.pubs .a b { color: var(--fg); font-weight: 600; }
+.pubs .m { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 0.85rem; margin-top: 6px; }
+.pubs .v { color: var(--fg); font-weight: 500; }
+.badge {
+  font-size: 0.68rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--accent); background: var(--accent-soft); padding: 1px 8px; border-radius: 999px;
+}
+.more { font-size: 0.9rem; margin: 4px 0 0; }
+
+.xp li { display: grid; grid-template-columns: 92px 1fr; gap: 16px; margin-bottom: 22px; }
+.when { color: var(--muted); font-size: 0.85rem; font-variant-numeric: tabular-nums; padding-top: 2px; }
+.org { font-weight: 600; }
+.role { color: var(--muted); }
+.xp p { margin: 3px 0 0; font-size: 0.95rem; }
+
+footer {
+  margin-top: 64px; padding-top: 16px; border-top: 1px solid var(--line);
+  color: var(--faint); font-size: 0.8rem;
+}
+
+@media (max-width: 560px) {
+  .intro { flex-direction: column; align-items: flex-start; gap: 18px; }
+  .avatar { width: 88px; height: 88px; }
+  .links { gap: 6px 12px; }
+  .xp li { grid-template-columns: 1fr; gap: 2px; }
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="intro">
+  <img class="avatar" src="images/profile.jpg" alt="Photo of Aayush Mishra" width="104" height="104">
+  <div>
+    <h1>Aayush Mishra</h1>
+    <nav class="links" aria-label="Profiles">
+      <a class="cv" href="files/CV.pdf">CV</a>
+      <a href="https://scholar.google.com/citations?user=qd0DNpEAAAAJ">Scholar</a>
+      <a href="https://github.com/aamixsh">GitHub</a>
+      <a href="https://www.linkedin.com/in/aamixsh">LinkedIn</a>
+      <a href="https://x.com/aamixsh">X</a>
+      <a href="mailto:amishr24@jhu.edu">Email</a>
+    </nav>
+  </div>
+</header>
+
+<div class="bio">
+  <p>I'm a fifth-year Computer Science PhD student at <a href="https://www.cs.jhu.edu">Johns Hopkins University</a>, advised by <a href="https://anqiliu-ai.github.io">Anqi (Angie) Liu</a> and mentored by <a href="https://danielkhashabi.com">Daniel Khashabi</a>. I'm currently a <a href="https://www.matsprogram.org">MATS</a> 11.0 fellow in Berkeley, working with the OpenAI Safety Team on natural activation steering in reasoning and looped language models.</p>
+  <p>My research aims to achieve efficient and reliable adaptation in AI models. I have 3+ years of industry experience at Qualcomm, Adobe, Microsoft and Siemens, most recently enabling dynamic computation in looped LMs at Qualcomm AI Research. I received my B.Tech. in Computer Science from <a href="https://www.iitmandi.ac.in">IIT Mandi</a>.</p>
+</div>
+
+<section id="publications">
+  <h2>Selected publications</h2>
+  <ol class="pubs">
+    <li>
+      <a class="t" href="https://arxiv.org/abs/2610.09013">Enabling Dynamic Computation in Looped LMs</a>
+      <div class="a"><b>Aayush Mishra</b>, Arnau Padrés Masdemont, Victor Conchello Vendrell, Jordi Ros Giralt, Arash Behboodi, Fabio Valerio Massoli</div>
+      <div class="m"><span class="v">Preprint 2026</span><a href="https://arxiv.org/abs/2610.09013">arXiv</a></div>
+    </li>
+    <li>
+      <a class="t" href="https://arxiv.org/abs/2604.09839">Steered LLM Activations are Non-Surjective</a>
+      <div class="a"><b>Aayush Mishra</b>, Daniel Khashabi, Anqi Liu</div>
+      <div class="m"><span class="v">Sci4DL &amp; Re-Align @ ICLR 2026</span><a href="https://arxiv.org/abs/2604.09839">arXiv</a><a href="https://x.com/i/status/2056357773521084767">thread</a></div>
+    </li>
+    <li>
+      <a class="t" href="https://arxiv.org/abs/2509.22621">IA2: Alignment with ICL Activations Improves Supervised Fine-Tuning</a>
+      <div class="a"><b>Aayush Mishra</b>, Daniel Khashabi, Anqi Liu</div>
+      <div class="m"><span class="v">ICLR 2026</span><a href="https://arxiv.org/abs/2509.22621">arXiv</a><a href="https://github.com/aamixsh/ia2">code</a><a href="https://x.com/i/status/1973854124627337437">thread</a></div>
+    </li>
+    <li>
+      <a class="t" href="https://openreview.net/pdf?id=KmNFx8DmaZ">Genomic Next-Token Predictors are In-Context Learners</a>
+      <div class="a">Nathan Breslow, <b>Aayush Mishra</b>, et al.</div>
+      <div class="m"><span class="v">TMLR 2026</span><span class="badge">Oral @ MLGenX</span><a href="https://openreview.net/pdf?id=KmNFx8DmaZ">paper</a><a href="https://x.com/i/status/1990779976850039145">thread</a></div>
+    </li>
+    <li>
+      <a class="t" href="https://proceedings.mlr.press/v286/mishra25a.html">ODD: Overlap-aware Estimation of Model Performance under Distribution Shift</a>
+      <div class="a"><b>Aayush Mishra</b>, Anqi Liu</div>
+      <div class="m"><span class="v">UAI 2025</span><a href="https://proceedings.mlr.press/v286/mishra25a.html">paper</a><a href="https://github.com/aamixsh/odd">code</a><a href="https://x.com/i/status/1956011215240458512">thread</a></div>
+    </li>
+    <li>
+      <a class="t" href="https://openreview.net/pdf?id=KxGGZag9gW">EigenLoRA: Recycle Trained Adapters for Resource-Efficient Adaptation and Inference</a>
+      <div class="a"><b>Aayush Mishra</b>*, Prakhar Kaushik*, et al.</div>
+      <div class="m"><span class="v">Preprint 2024</span><a href="https://openreview.net/pdf?id=KxGGZag9gW">paper</a></div>
+    </li>
+    <li>
+      <a class="t" href="https://arxiv.org/abs/2310.08540">Do Pretrained Transformers Learn In-Context by Gradient Descent?</a>
+      <div class="a"><b>Aayush Mishra</b>*, Lingfeng Shen*, Daniel Khashabi</div>
+      <div class="m"><span class="v">ICML 2024</span><span class="badge">Oral</span><a href="https://arxiv.org/abs/2310.08540">arXiv</a><a href="https://www.youtube.com/watch?v=-yo2672UikU">talk</a></div>
+    </li>
+  </ol>
+  <p class="more">* equal contribution · <a href="https://scholar.google.com/citations?user=qd0DNpEAAAAJ">Full list on Google Scholar →</a></p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <ol class="xp">
+    <li>
+      <span class="when">2026 – now</span>
+      <div><span class="org">MATS</span> <span class="role">· Research Fellow, OpenAI Safety Team</span>
+        <p>Natural activation steering for reasoning and looped language models.</p></div>
+    </li>
+    <li>
+      <span class="when">2026</span>
+      <div><span class="org">Qualcomm AI Research</span> <span class="role">· AI Research Intern</span>
+        <p>Made early exit practical in looped LMs, cutting FLOPs and KV-cache memory by up to 30% at full-depth quality. 3 invention disclosures.</p></div>
+    </li>
+    <li>
+      <span class="when">2024</span>
+      <div><span class="org">Adobe</span> <span class="role">· AI Research Intern</span>
+        <p>EigenLoRA: recycles trained LoRA adapters so new tasks train up to 100× fewer parameters, with ~18× less memory for multi-adapter inference.</p></div>
+    </li>
+    <li>
+      <span class="when">2021 – 22</span>
+      <div><span class="org">Microsoft</span> <span class="role">· Data &amp; Applied Scientist, Bing Shopping</span>
+        <p>Query-to-product-category classification over ~18k classes and a relevance metric for offer ranking.</p></div>
+    </li>
+    <li>
+      <span class="when">2019 – 21</span>
+      <div><span class="org">Siemens</span> <span class="role">· Research Engineer</span>
+        <p>CNN explainability and compression for edge deployment; an RL agent that finds safety violations of self-driving agents in simulation. 3 invention disclosures.</p></div>
+    </li>
+  </ol>
+</section>
+
+<footer>Last updated October 2026</footer>
+
+</main>
+</body>
+</html>

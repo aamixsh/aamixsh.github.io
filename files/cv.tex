@@ -1,980 +1,112 @@
-\documentclass[10pt, letterpaper]{article}
+% Aayush Mishra — CV
+% Build: pdflatex cv.tex   (uses only packages bundled with every TeX distribution)
+\documentclass[10pt,letterpaper]{article}
 
-% Packages:
-\usepackage[
-    ignoreheadfoot, % set margins without considering header and footer
-    top=2 cm, % seperation between body and page edge from the top
-    bottom=2 cm, % seperation between body and page edge from the bottom
-    left=2 cm, % seperation between body and page edge from the left
-    right=2 cm, % seperation between body and page edge from the right
-    footskip=1.0 cm, % seperation between body and footer
-    % showframe % for debugging 
-]{geometry} % for adjusting page geometry
-\usepackage{titlesec} % for customizing section titles
-\usepackage{tabularx} % for making tables with fixed width columns
-\usepackage{array} % tabularx requires this
-\usepackage[dvipsnames]{xcolor} % for coloring text
-\definecolor{primaryColor}{RGB}{0, 79, 144} % define primary color
-\usepackage{enumitem} % for customizing lists
-\usepackage{fontawesome5} % for using icons
-\usepackage{amsmath} % for math
-\usepackage[
-    pdftitle={Aayush Mishra's CV},
-    pdfauthor={Aayush Mishra},
-    pdfcreator={Aayush Mishra},
-    colorlinks=true,
-    urlcolor=primaryColor
-]{hyperref} % for links, metadata and bookmarks
-\usepackage[pscoord]{eso-pic} % for floating text on the page
-\usepackage{calc} % for calculating lengths
-\usepackage{bookmark} % for bookmarks
-\usepackage{lastpage} % for getting the total number of pages
-\usepackage{changepage} % for one column entries (adjustwidth environment)
-\usepackage{paracol} % for two and three column entries
-\usepackage{ifthen} % for conditional statements
-\usepackage{needspace} % for avoiding page brake right after the section title
-\usepackage{amssymb}
-\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
-\usepackage{tikz}
+\usepackage[left=0.65in,right=0.65in,top=0.55in,bottom=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[default,semibold]{sourcesanspro}
+\usepackage{microtype}
+\usepackage{xcolor}
+\usepackage[hidelinks,pdftitle={Aayush Mishra - CV},pdfauthor={Aayush Mishra}]{hyperref}
+\input{glyphtounicode}\pdfgentounicode=1 % keep the PDF text ATS-readable
 
-% Ensure that generate pdf is machine readable/ATS parsable:
-\ifPDFTeX
-    \input{glyphtounicode}
-    \pdfgentounicode=1
-    % \usepackage[T1]{fontenc} % this breaks sb2nov
-    \usepackage[utf8]{inputenc}
-    \usepackage{lmodern}
-\fi
+\definecolor{accent}{HTML}{1D4ED8}
+\definecolor{muted}{HTML}{6B7280}
+\definecolor{hair}{HTML}{D1D5DB}
 
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\linespread{1.05}
 
+% ---------------------------------------------------------------- macros ---
+\newcommand{\sep}{\enspace{\color{hair}|}\enspace}
+\newcommand{\me}{\textbf{Aayush Mishra}}
+\newcommand{\link}[2]{\href{#1}{\color{accent}#2}}
 
-% Some settings:
-\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
-\pagestyle{empty} % no header or footer
-\setcounter{secnumdepth}{0} % no section numbering
-\setlength{\parindent}{0pt} % no indentation
-\setlength{\topskip}{0pt} % no top skip
-\setlength{\columnsep}{0cm} % set column seperation
-\makeatletter
-\let\ps@customFooterStyle\ps@plain % Copy the plain style to customFooterStyle
-% \patchcmd{\ps@customFooterStyle}{\thepage}{
-%     \color{gray}\textit{\small Aayush Mishra - Page \thepage{} of \pageref*{LastPage}}
-% }{}{} % replace number by desired string
-\patchcmd{\ps@customFooterStyle}{\thepage}{
-    \color{gray}\textit{}
-}{}{} % replace number by desired string
-\makeatother
-\pagestyle{customFooterStyle}
+% \section{Title}
+\renewcommand{\section}[1]{\par\vspace{9pt}%
+  {\color{accent}\bfseries\footnotesize\MakeUppercase{#1}}\par\vspace{2.5pt}%
+  {\color{hair}\hrule height 0.6pt}\vspace{6pt}}
 
-\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+% \job{Organization}{Role}{Location}{Dates}
+\newcommand{\job}[4]{{\bfseries #1}\enspace#2\enspace{\color{muted}#3}\hfill{\color{muted}#4}\par}
 
-\titlespacing{\section}{
-    % left space:
-    -1pt
-}{
-    % top space:
-    0.3 cm
-}{
-    % bottom space:
-    0.2 cm
-} % section title spacing
+% \pub{Title}{Authors}{Venue and links}{Year}
+\newcommand{\pub}[4]{{\bfseries #1}\hfill{\color{muted}#4}\par
+  {\small #2\sep #3}\par\vspace{4.5pt}}
 
-\renewcommand\labelitemi{$\circ$} % custom bullet points
-\newenvironment{highlights}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=0.4 cm + 10pt
-    ]
-}{
-    \end{itemize}
-} % new environment for highlights
+\newenvironment{bullets}
+  {\begin{list}{\color{muted}\textbullet}{\setlength{\leftmargin}{11pt}\setlength{\labelsep}{5pt}%
+    \setlength{\itemsep}{1.5pt}\setlength{\parsep}{0pt}\setlength{\topsep}{2.5pt}\setlength{\partopsep}{0pt}}}
+  {\end{list}\vspace{5pt}}
 
-\newenvironment{highlightsforbulletentries}{
-    \begin{itemize}[
-        topsep=0.10 cm,
-        parsep=0.10 cm,
-        partopsep=0pt,
-        itemsep=0pt,
-        leftmargin=10pt
-    ]
-}{
-    \end{itemize}
-} % new environment for highlights for bullet entries
-
-
-\newenvironment{onecolentry}{
-    \begin{adjustwidth}{
-        0.2 cm + 0.00001 cm
-    }{
-        0.2 cm + 0.00001 cm
-    }
-}{
-    \end{adjustwidth}
-} % new environment for one column entries
-
-\newenvironment{twocolentry}[2][]{
-    \onecolentry
-    \def\secondColumn{#2}
-    \setcolumnwidth{\fill, 4 cm}
-    \begin{paracol}{2}
-}{
-    \switchcolumn \raggedleft \secondColumn
-    \end{paracol}
-    \endonecolentry
-} % new environment for two column entries
-
-\newenvironment{twocolentrysmall}[2][]{
-    \onecolentry
-    \def\secondColumn{#2}
-    \setlength{\columnsep}{0.5cm}
-    \setcolumnwidth{20cm, 1.5 cm}
-    \begin{paracol}{2}
-}{
-    \switchcolumn \raggedleft \secondColumn
-    \end{paracol}
-    \endonecolentry
-} % new environment for two column entries
-
-\newenvironment{header}{
-    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
-}{
-    \par\kern\topsep
-} % new environment for the header
-
-\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
-  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
-    \put(
-        \LenToUnit{\paperwidth-2 cm-0.2 cm+0.05cm},
-        \LenToUnit{\paperheight-1.0 cm}
-    ){\vtop{{\null}\makebox[0pt][c]{
-        \small\color{gray}\textit{Last updated in \the\month/\the\year}\hspace{\widthof{Last updated in \the\month/\the\year}}
-    }}}%
-  }%
-}%
-
-% save the original href command in a new command:
-\let\hrefWithoutArrow\href
-
-% new command for external links:
-\renewcommand{\href}[2]{\hrefWithoutArrow{#1}{\ifthenelse{\equal{#2}{}}{ }{#2 }\raisebox{.15ex}{\footnotesize \faExternalLink*}}}
-
-
+% ------------------------------------------------------------------ body ---
 \begin{document}
-    \newcommand{\AND}{\unskip
-        \cleaders\copy\ANDbox\hskip\wd\ANDbox
-        \ignorespaces
-    }
-    \newsavebox\ANDbox
-    \sbox\ANDbox{}
 
-    \placelastupdatedtext
-    \begin{header}
-        \textbf{\fontsize{24 pt}{24 pt}\selectfont Aayush Mishra}
-
-        \vspace{0.3 cm}
-
-        \normalsize
-        \mbox{{\color{black}\footnotesize\faMapMarker*}\hspace*{0.13cm}Baltimore, USA}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{mailto:amishr24@jhu.edu}{\color{black}{\footnotesize\faEnvelope[regular]}\hspace*{0.13cm}amishr24@jhu.edu}}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{tel:+16673799669}{\color{black}{\footnotesize\faPhone*}\hspace*{0.13cm}+1 667-379-9669}}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{https://aamixsh.github.io/}{\color{black}{\footnotesize\faLink}\hspace*{0.13cm}aamixsh.github.io}}%
-        \kern 0.25 cm%
-        \AND%
-        \kern 0.25 cm%
-        \mbox{\hrefWithoutArrow{https://linkedin.com/in/aamixsh}{\color{black}{\footnotesize\faLinkedinIn}\hspace*{0.13cm}aamixsh}}%
-        \kern 0.25 cm%
-        % \AND%
-        % \kern 0.25 cm%
-        % \mbox{\hrefWithoutArrow{https://github.com/aamixsh}{\color{black}{\footnotesize\faGithub}\hspace*{0.13cm}aamixsh}}%
-        \begin{onecolentry}
-        \centering
-            Vision: \texttt{Efficient and Reliable AI}
-        \end{onecolentry}
-    \end{header}
-
-    \vspace{0.3 cm - 0.3 cm}
-
-
-    % \section{About Me}
-
-
-
-        
-    %     \begin{onecolentry}
-    %         I am passionate about robust, explainable and efficient intelligent systems.
-    %     \end{onecolentry}
-
-    %     \vspace{0.2 cm}
-
-    %     \begin{onecolentry}
-    %         The boilerplate content was inspired by \href{https://github.com/dnl-blkv/mcdowell-cv}{Gayle McDowell}.
-    %     \end{onecolentry}
-
-
-    
-    % \section{Quick Guide}
-
-    % \begin{onecolentry}
-    %     \begin{highlightsforbulletentries}
-
-
-    %     \item Each section title is arbitrary and each section contains a list of entries.
-
-    %     \item There are 7 unique entry types: \textit{BulletEntry}, \textit{TextEntry}, \textit{EducationEntry}, \textit{ExperienceEntry}, \textit{NormalEntry}, \textit{PublicationEntry}, and \textit{OneLineEntry}.
-
-    %     \item Select a section title, pick an entry type, and start writing your section!
-
-    %     \item \href{https://docs.rendercv.com/user_guide/}{Here}, you can find a comprehensive user guide for RenderCV.
-
-
-    %     \end{highlightsforbulletentries}
-    % \end{onecolentry}
-
-    \section{Education}
-
-
-
-        
-        \begin{twocolentry}{
-            
-        \texttt{Jan 2022 -\hspace{47pt}}   
-        
-        \texttt{- ongoing\hspace{5pt}}
-
-        \texttt{- Dec 2023}
-        
-        }
-            \textbf{Johns Hopkins University}
-
-            \hspace{0.25cm}Ph.D. in Computer Science
-
-            \hspace{0.25cm}M.S.E. in Computer Science -- GPA: 4.0/4.0 (\href{https://aamixsh.github.io/files/grad_transcript.pdf}{transcript}) 
-        \end{twocolentry}
-        \vspace{0.15cm}
-        \begin{twocolentry}{
-            
-        \normalsize{\texttt{Aug 2015 - Jun 2019}}
-        
-        }
-            \textbf{Indian Institute of Technology Mandi}
-
-            \hspace{0.25cm}B.Tech. in Computer Science and Engineering
-            -- GPA: 8.88/10.0 (\href{https://aamixsh.github.io/files/undergrad_degree_transcripts_instructions.pdf}{transcript})
-            
-            \hspace{0.25cm}\footnotesize{with Minor in Management}
-        \end{twocolentry}
-
-        % \vspace{0.10 cm}
-        % \begin{onecolentry}
-        %     \begin{highlights}
-        %         \item GPA: 4.0/4.0 (\href{https://aamixsh.github.io/files/grad_transcript.pdf}{transcript})
-        %     \end{highlights}
-        % \end{onecolentry}
-
-
-    
-    \section{Selected Publications}
-
-
-
-        
-        % \begin{samepage}
-
-            \begin{twocolentrysmall}{
-                \normalsize{\texttt{2026}}
-
-                
-            }
-                \begin{itemize}[leftmargin=*]
-                    \item Steered LLM Activations are Non-Surjective
-                \end{itemize}
-
-                % \vspace{0.10 cm}
-
-                \footnotesize{\hspace{0.5cm}\mbox{\textbf{Aayush Mishra}}, 
-                \mbox{Daniel Khashabi},
-                \mbox{Anqi Liu}
-                [\href{https://arxiv.org/abs/2604.09839}{pre-print}, (\href{https://scienceofdlworkshop.github.io/}{Sci4DL}, \href{https://representational-alignment.github.io/2026/}{Re-Align})@ICLR]}
-            \end{twocolentrysmall}
-
-            \begin{twocolentrysmall}{
-                \normalsize{\texttt{2026}}
-
-                
-            }
-                \begin{itemize}[leftmargin=*]
-                    \item Genomic Next-Token Predictors are In-Context Learners
-                \end{itemize}
-
-                % \vspace{0.10 cm}
-
-                \footnotesize{\hspace{0.5cm}\mbox{Nathan Breslow}, \mbox{\textbf{Aayush Mishra}}, 
-                \mbox{et al.}
-                [\href{https://openreview.net/pdf?id=KmNFx8DmaZ}{TMLR}, (\href{https://scienceofdlworkshop.github.io/}{Sci4DL}, \href{https://mlgenx.github.io/}{MLGenX (Oral)})@ICLR]}
-            \end{twocolentrysmall}
-
-            \begin{twocolentrysmall}{
-                \normalsize{\texttt{2025}}
-
-                
-            }
-                \begin{itemize}[leftmargin=*]
-                    \item \texttt{\textbf{IA2}}: Alignment with ICL Activations Improves Supervised Fine-Tuning
-                \end{itemize}
-
-                % \vspace{0.10 cm}
-
-                \footnotesize{\hspace{0.5cm}\mbox{\textbf{Aayush Mishra}}, 
-                \mbox{Daniel Khashabi},
-                \mbox{Anqi Liu}
-                [\href{https://openreview.net/pdf?id=r99m9ziONQ}{ICLR}]}
-            \end{twocolentrysmall}
-
-            \begin{twocolentrysmall}{
-                \normalsize{\texttt{2025}}
-
-                
-            }
-                \begin{itemize}[leftmargin=*]
-                    \item ICL CIPHERS: Quantifying ``Learning'' in ICL via Substitution Ciphers
-                \end{itemize}
-
-                % \vspace{0.10 cm}
-
-                \footnotesize{\hspace{0.5cm}\mbox{Zhouxiang Fang}, 
-                \textbf{\mbox{Aayush Mishra}},
-                \mbox{et al.}
-                [\href{https://aclanthology.org/2025.emnlp-main.1316/}{EMNLP (Main)}]}
-            \end{twocolentrysmall}
-
-            
-
-            \begin{twocolentrysmall}{
-                \normalsize{\texttt{2025}}
-
-                
-            }
-                \begin{itemize}[leftmargin=*]
-                    \item ODD: Overlap-aware Estimation of Model Performance under Distribution Shift
-                \end{itemize}
-
-                % \vspace{0.10 cm}
-
-                \footnotesize{\hspace{0.5cm}\mbox{\textbf{Aayush Mishra}}, 
-                \mbox{Anqi Liu}
-                [\href{https://proceedings.mlr.press/v286/mishra25a.html}{UAI}]}
-            \end{twocolentrysmall}
-            
-            \begin{twocolentrysmall}{
-                \normalsize{\texttt{2024}}
-
-                
-            }
-                \begin{itemize}[leftmargin=*]
-                    \item EigenLoRA: Recycle trained Adapters for Resource Efficient Adaptation and Inference
-                \end{itemize}
-
-                % \vspace{0.10 cm}
-
-                \footnotesize{\hspace{0.5cm}\mbox{\textbf{Aayush Mishra}$^*$}, 
-                \mbox{Prakhar Kaushik$^*$}, 
-                \mbox{et al.}
-                [\href{https://openreview.net/pdf?id=KxGGZag9gW}{pre-print}]}
-            \end{twocolentrysmall}
-            
-            % \vspace{0.15cm}
-            
-            \begin{twocolentrysmall}{
-                \normalsize{\texttt{2024}}
-
-                
-            }
-                \begin{itemize}[leftmargin=*]
-                    \item Do pretrained Transformers Learn In-Context by Gradient Descent?
-                \end{itemize}
-
-                % \vspace{0.10 cm}
-
-                \footnotesize{\hspace{0.5cm}\mbox{\textbf{Aayush Mishra}$^*$}, 
-                \mbox{Lingfeng Shen$^*$}, 
-                \mbox{Daniel Khashabi}
-                [\href{https://arxiv.org/abs/2310.08540}{ICML (Oral)}]}
-            \end{twocolentrysmall}
-
-            % \vspace{0.15cm}
-
-            \begin{twocolentrysmall}{
-                \normalsize{\texttt{2024}}
-
-                
-            }
-                \begin{itemize}[leftmargin=*]
-                    \item Source-Free and Image-Only Unsupervised Domain Adaptation for Category Level OPE
-                \end{itemize}
-
-                % \vspace{0.10 cm}
-
-                \footnotesize{\hspace{0.5cm}\mbox{Prakhar Kaushik}, 
-                \mbox{\textbf{Aayush Mishra}}, 
-                \mbox{et al.}
-                [\href{https://arxiv.org/abs/2401.10848}{ICLR}]}
-            \end{twocolentrysmall}
-
-            % \vspace{0.15cm}
-
-            %  \begin{twocolentrysmall}{
-            %     \normalsize{\texttt{2022}}
-
-                
-            % }
-            %     \begin{itemize}[leftmargin=*]
-            %         \item \textit{Repeated Environment Inference for Invariant Learning}
-            %     \end{itemize}
-
-            %     % \vspace{0.10 cm}
-
-            %     \footnotesize{\hspace{0.5cm}\mbox{\textbf{Aayush Mishra}}, 
-            %     \mbox{Anqi Liu}
-            %     [\href{https://arxiv.org/abs/2207.12876}{SCIS@ICML}]}
-            % \end{twocolentrysmall}
-
-            % \vspace{0.15cm}
-
-             \begin{twocolentrysmall}{
-                \normalsize{\texttt{2019}}
-
-                
-            }
-                \begin{itemize}[leftmargin=*]
-                    \item VStegNET: Video Steganography Network using Spatio-Temporal features and Micro-Bottleneck
-                \end{itemize}
-
-                % \vspace{0.10 cm}
-
-                \footnotesize{\hspace{0.5cm}\mbox{\textbf{Aayush Mishra}$^*$}, 
-                \mbox{Suraj Kumar$^*$}, 
-                \mbox{et al.}
-                [\href{https://github.com/aamixsh/VStegNET}{BMVC}]}
-            \end{twocolentrysmall}
-
-            % \vspace{0.15cm}
-
-             % \begin{twocolentrysmall}{
-             %    \texttt{2019}
-
-                
-            % }
-            %     \begin{itemize}[leftmargin=*]
-            %         \item \textit{Generating Masterprints}
-            %     \end{itemize}
-
-            %     % \vspace{0.10 cm}
-
-            %     \hspace{0.5cm}\mbox{\textbf{Aayush Mishra}}
-            %     % \mbox{Suraj Kumar$^*$}, 
-            %     % \mbox{et al.}
-            %     [\href{https://aamixsh.github.io/files/MTP_Thesis.pdf}{bachelor's thesis}]
-            % \end{twocolentrysmall}
-
-            
-
-
-            % \vspace{0.10 cm}
-
-        %     \begin{onecolentry}
-        % \href{https://doi.org/10.1109/TASC.2023.3340648}{10.1109/TASC.2023.3340648}
-        %     \end{onecolentry}
-        % \end{samepage}
-
-    \section{Experience}
-
-        \begin{twocolentry}{
-            \texttt{Sep 2026 -\hspace{47pt}}
-        }
-            \textbf{MATS Research} [11.0 Fellow, OpenAI Safety Team] \textit{Berkeley, USA}
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item \textit{Natural} Activation Steering in Reasoning and Looped Models.
-                % a method to recycle trained LoRAs for parameter efficient training of new adaptors; and memory efficient inference of multiple adaptors, aimed at LLM/diffusion model use in edge devices.
-            \end{highlights}
-        \end{onecolentry}
-
-
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{
-            % \texttt{}
-            
-            \texttt{May 2026 - Sep 2026}\hspace{48pt}}
-            \textbf{Qualcomm} [AI Research Intern] \textit{Amsterdam, Netherlands}
-            
-            % \hspace{0.25cm}\textit{Research Intern} [AI Research]
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Developed memory+compute efficient early exit algorithms for Looped Language Models.
-                % a method to recycle trained LoRAs for parameter efficient training of new adaptors; and memory efficient inference of multiple adaptors, aimed at LLM/diffusion model use in edge devices.
-            \end{highlights}
-        \end{onecolentry}
-
-
-        \vspace{0.2 cm}
-
-
-        
-        \begin{twocolentry}{
-            % \texttt{}
-            
-            \texttt{May 2024 - Aug 2024}       
-        }
-            \textbf{Adobe} [AI Research Intern] \textit{College Park, USA}
-            
-            % \hspace{0.25cm}\textit{Research Intern} [Document Intelligence Lab]
-            % \begin{highlights}
-            %     \item Developed \textbf{EigenLoRA}, 
-            %     to recycle pre-trained LoRAs for parameter efficient training of new LoRAs; and memory efficient inference on edge devices.
-            %     % a method to recycle trained LoRAs for peft training of new adaptors; and memory efficient inference of multiple adaptors, aimed at LLM/diffusion model use in edge devices.
-            % \end{highlights}
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Developed \textbf{EigenLoRA}, to recycle pre-trained LoRAs for efficient inference and training of new LoRAs.
-                % a method to recycle trained LoRAs for parameter efficient training of new adaptors; and memory efficient inference of multiple adaptors, aimed at LLM/diffusion model use in edge devices.
-            \end{highlights}
-        \end{onecolentry}
-
-
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{
-        % \texttt{}
-            
-            \texttt{Aug 2021 - Jan 2022}
-        }
-            \textbf{Microsoft} [Data \& Applied Scientist] \textit{Hyderabad, India}
-
-            % \begin{highlights}
-            %     \item Developed 1) a query $\rightarrow$ product class ($\sim$18k classes) model; 2) a relevance metric to improve offer ranking on Bing Shopping vertical.
-            % \end{highlights}
-            
-            % \hspace{0.25cm}\textit{Data \& Applied Scientist} [Bing Shopping]
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Developed 1) a query $\rightarrow$ product class ($\sim$18k classes) model; 2) a relevance metric to improve offer ranking.
-            \end{highlights}
-        \end{onecolentry}
-
-        \vspace{0.2 cm}
-
-        \begin{twocolentry}{
-        % \texttt{}
-            
-            \texttt{Jul 2019 - Aug 2021}
-        }
-            \textbf{Siemens} [Research Engineer] \textit{Bengaluru, India}
-            
-            % \hspace{0.25cm}\textit{Research Engineer} [Automation]
-            % \begin{highlights}
-            %     \item Developed a CNN explainability and compression algorithm aimed at edge deployment.
-            %     \item Used GAN-Dissection to procedurally generate traffic images for stress-testing traffic monitors (YOLO). 
-            %     % Devised a procedural generation language based on GAN-Dissection to create images based on a description.
-            %     \item Trained an RL agent to find edge-case safety violations of self-driving agents in a simulator.
-            %     \item Developed a semantic search tool for codebases using Latent Semantic Analysis, and a Siemens social network post classification tool using statistical NLP. Work done during internships during 2017--2018.
-            % \end{highlights}
-        \end{twocolentry}
-
-        \vspace{0.10 cm}
-        \begin{onecolentry}
-            \begin{highlights}
-                \item Developed a CNN explainability and compression algorithm aimed at edge deployment.
-                % \item Used GAN-Dissection to procedurally generate traffic images for stress-testing traffic monitors (YOLO). 
-                % Devised a procedural generation language based on GAN-Dissection to create images based on a description.
-                \item Trained an RL agent to find edge-case safety violations of self-driving agents in a simulator.
-                \item Developed a semantic search tool for codebases using Latent Semantic Analysis, and a Siemens social network post classification tool using statistical NLP. Work done during internships during 2017--2018.
-            \end{highlights}
-        \end{onecolentry}
-
-        % \begin{twocolentry}{
-        % \texttt{}
-            
-        %     \texttt{}
-        % }
-        %     \textbf{}
-            
-        %     \hspace{0.25cm}\textit{Research Intern} [Automation]
-        % \end{twocolentry}
-
-        % \vspace{0.10 cm}
-        % \begin{onecolentry}
-        %     \begin{highlights}
-        %         \item Classification of Siemens Social Network posts using statistical NLP. \hfill \texttt{Summer 2018}
-        %         \item Code reuse recommendation based on semantic search (Latent Semantic Analysis). \hfill \texttt{Winter 2017-2018}
-        %     \end{highlights}
-        % \end{onecolentry}
-
-    % \section{Skills}
-    % \centering
-    \vspace{10pt}
-    \textbf{Skills}
-    \titlerule
-    \vspace{-5pt}
-        \begin{table*}[hb]
-            \centering
-            \small
-            % \resizebox{0.85\linewidth}{!}{
-        \begin{tabular}{cccc}
-            \footnotesize{\textbf{Python}} \hspace{5pt} 
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex); & 
-            \textbf{C++} \hspace{5pt} 
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=white] (0,0) circle (0.5ex); &
-            \textbf{Data Engineering} \hspace{10pt} 
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex); &
-            \textbf{ML toolkits (\texttt{torch/TRL/etc.})} \hspace{5pt} 
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            % \textbf{Software Engineering} & \hspace{5pt} 
-            % \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            % \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            % \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            % \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-            % \tikz\draw[black,fill=white] (0,0) circle (0.5ex);
-        \end{tabular}
-        % }
-        \end{table*}
-        % \begin{table*}
-        % \vspace{-100pt}
-        %     \centering
-        %     \small
-        %     \resizebox{\linewidth}{!}{
-        % \begin{tabular}{cc}
-        %     \textbf{ML Toolkits (\texttt{torch, transformers}, etc.)} \hspace{5pt} 
-        %     \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (0.5ex); &
-        %     \textbf{Software Engineering} \hspace{5pt} 
-        %     \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (0.5ex);
-        %     \tikz\draw[black,fill=white] (0,0) circle (0.5ex);
-        % \end{tabular}}
-        % \end{table*}
-        %      \multicolumn{10}{c}{ Adaptation Method } \\
-        %      \cmidrule(lr){1-12}
-        %       \multirow{2}{*}{Source} & \multirow{2}{*}{Eval} & \multicolumn{2}{c}{ICL} & \multicolumn{2}{c}{SFT only} & \multicolumn{2}{c}{\act only} & \multicolumn{2}{c}{\act $\rightarrow$ SFT} & \multicolumn{2}{c}{\act + SFT} \\
-        %       & & acc $\uparrow$ & ece $\downarrow$ & acc $\uparrow$ & ece $\downarrow$ & acc $\uparrow$ & ece $\downarrow$ & acc $\uparrow$ & ece $\downarrow$ & acc $\uparrow$ & ece $\downarrow$ \\
-        %      \midrule
-        %      \rule{0pt}{2ex}
-        %     \multirow{2}{*}{AGN} & AGN & 30.0 \tiny{(02.3)} & 0.13 \tiny{(0.03)} & 21.3 \tiny{(01.8)} & 0.66 \tiny{(0.06)} & 24.0 \tiny{(00.3)} & \textbf{0.11} \tiny{(0.01)} & 23.9 \tiny{(01.5)} & 0.70 \tiny{(0.08)} & \textbf{24.2} \tiny{(00.9)} & 0.26 \tiny{(0.10)} \\
-        %     & BBCN$^*$ & 28.8 \tiny{(00.6)} & 0.12 \tiny{(0.01)} & 30.8 \tiny{(05.6)} & 0.52 \tiny{(0.08)} & 24.3 \tiny{(01.3)} & \textbf{0.10} \tiny{(0.02)} & 30.1 \tiny{(05.3)} & 0.47 \tiny{(0.19)} & \textbf{31.3} \tiny{(05.6)} & 0.39 \tiny{(0.16)} \\
-        %     \midrule
-        %     \multirow{3}{*}{FinS} & FinS & 63.6 \tiny{(01.5)} & 0.12 \tiny{(0.01)} & 61.9 \tiny{(11.4)} & 0.35 \tiny{(0.05)} & \textbf{63.1} \tiny{(15.0)} & \textbf{0.24} \tiny{(0.06)} & 60.8 \tiny{(13.5)} & 0.35 \tiny{(0.05)} & 62.8 \tiny{(09.7)} & 0.31 \tiny{(0.04)} \\
-        %     & PoemS$^*$ & 56.9 \tiny{(02.2)} & 0.12 \tiny{(0.02)} & 47.7 \tiny{(03.1)} & 0.50 \tiny{(0.06)} & \textbf{52.8} \tiny{(05.6)} & \textbf{0.15} \tiny{(0.04)} & 47.4 \tiny{(02.5)} & 0.47 \tiny{(0.13)} & 47.8 \tiny{(03.2)} & 0.25 \tiny{(0.08)} \\
-        %     & SST2$^*$ & 70.1 \tiny{(01.3)} & 0.17 \tiny{(0.01)} & 53.0 \tiny{(01.7)} & 0.34 \tiny{(0.11)} & \textbf{69.8} \tiny{(13.7)} & \textbf{0.30} \tiny{(0.10)} & 51.3 \tiny{(01.8)} & 0.49 \tiny{(0.02)} & 54.1 \tiny{(03.8)} & 0.37 \tiny{(0.09)} \\
-        %     \midrule
-        %     \multirow{2}{*}{SciQr} & QASCr$^*$ & 56.5 \tiny{(01.4)} & 0.08 \tiny{(0.01)} & 66.6 \tiny{(15.1)} & 0.13 \tiny{(0.09)} & 71.2 \tiny{(03.0)} & 0.12 \tiny{(0.01)} & \textbf{72.8} \tiny{(06.6)} & 0.14 \tiny{(0.03)} & 68.8 \tiny{(02.7)} & \textbf{0.08} \tiny{(0.02)} \\
-        %     & SciQr & 87.7 \tiny{(01.1)} & 0.07 \tiny{(0.01)} & 80.6 \tiny{(14.3)} & 0.12 \tiny{(0.10)} & \textbf{90.4} \tiny{(01.5)} & 0.09 \tiny{(0.01)} & 86.6 \tiny{(07.5)} & \textbf{0.08} \tiny{(0.05)} & 89.5 \tiny{(00.8)} & 0.08 \tiny{(0.01)} \\
-        %     \midrule
-        %     \multirow{3}{*}{SST2} & FinS$^*$ & 41.9 \tiny{(00.3)} & 0.19 \tiny{(0.01)} & 57.4 \tiny{(12.6)} & 0.40 \tiny{(0.11)} & 71.3 \tiny{(02.1)} & \textbf{0.21} \tiny{(0.03)} & 66.2 \tiny{(18.1)} & 0.26 \tiny{(0.17)} & \textbf{71.5} \tiny{(22.2)} & 0.26 \tiny{(0.23)} \\
-        %     & PoemS$^*$ & 65.1 \tiny{(01.2)} & 0.11 \tiny{(0.02)} & 53.4 \tiny{(07.0)} & 0.40 \tiny{(0.07)} & 62.4 \tiny{(09.2)} & \textbf{0.19} \tiny{(0.06)} & 63.3 \tiny{(11.7)} & 0.35 \tiny{(0.13)} & \textbf{66.1} \tiny{(15.0)} & 0.23 \tiny{(0.16)} \\
-        %     & SST2 & 85.4 \tiny{(00.4)} & 0.13 \tiny{(0.00)} & 62.3 \tiny{(12.6)} & 0.34 \tiny{(0.13)} & \textbf{82.7} \tiny{(06.4)} & 0.28 \tiny{(0.03)} & 72.1 \tiny{(18.4)} & 0.27 \tiny{(0.19)} & 76.8 \tiny{(14.3)} & \textbf{0.27} \tiny{(0.04)} \\
-        %     \midrule
-        %     \multirow{1}{*}{STF} & STF & 66.0 \tiny{(02.1)} & 0.07 \tiny{(0.01)} & 53.5 \tiny{(06.5)} & 0.41 \tiny{(0.12)} & \textbf{62.2} \tiny{(04.1)} & \textbf{0.16} \tiny{(0.04)} & 60.0 \tiny{(07.0)} & 0.36 \tiny{(0.10)} & 58.5 \tiny{(06.4)} & 0.27 \tiny{(0.13)} \\
-        %     \bottomrule
-            
-        %     \end{tabular}}
-        % \end{table*}
-
-        % \begin{onecolentry}
-        %     \textbf{Python} \hspace{10pt} 
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % ,
-        %     \textbf{C++} \hspace{10pt} 
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=white] (0,0) circle (1ex);
-        % ,
-        %     \textbf{Data Engineering} \hspace{10pt} 
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);\\
-        % ,
-        %     \textbf{Machine Learning Toolkits (\texttt{torch, transformers}, etc.)} \hspace{10pt} 
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % ,
-        %     \textbf{Software Engineering} \hspace{10pt} 
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        %     \tikz\draw[black,fill=white] (0,0) circle (1ex);
-        % \end{onecolentry}
-
-        % \begin{twocolentry}{
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % }
-        %     \textbf{Python}
-        % \end{twocolentry}
-
-        % \begin{twocolentry}{
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=white] (0,0) circle (1ex);
-        % }
-        %     \textbf{C++}
-        % \end{twocolentry}
-
-        % \begin{twocolentry}{
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % }
-        %     \textbf{Machine Learning Toolkits (\texttt{torch, transformers}, etc.})
-        % \end{twocolentry}
-
-        % \begin{twocolentry}{
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % }
-        %     \textbf{Data Engineering}
-        % \end{twocolentry}
-
-        % \begin{twocolentry}{
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=black] (0,0) circle (1ex);
-        % \tikz\draw[black,fill=white] (0,0) circle (1ex);
-        % }
-        %     \textbf{Software Engineering}
-        % \end{twocolentry}
-
-        
-        % \begin{onecolentry}
-        %     \textbf{Languages:} C++, C, Java, Objective-C, C\#, SQL, JavaScript
-        % \end{onecolentry}
-
-        % \vspace{0.2 cm}
-
-        % \begin{onecolentry}
-        %     \textbf{Technologies:} .NET, Microsoft SQL Server, XCode, Interface Builder
-        % \end{onecolentry}
-
-
-    % \section{Quant}
-    % Currently doing a course ``Stochastic Processes and Applications to Finance" about option pricing, following Steven E. Shreve's book. Interested to apply my cross-domain skills in quant. 
-
-
-
-    
-    % \section{Projects}
-
-
-
-        
-    %     \begin{twocolentry}{
-            
-    %     \texttt{2023}}  
-    %     \textbf{CricScorer} [\href{https://www.cs.jhu.edu/~yarowsky/cs466.html}{IRWA course} project]
-    %     \end{twocolentry}
-
-    %     % \vspace{0.10 cm}
-    %     \begin{onecolentry}
-    %         \begin{highlights}
-    %             \item Live Cricket scorer to store and retrieve data/stats at the highest resolution. [\href{https://aamixsh.github.io/files/irwa_project.pdf}{report}]
-    %         \end{highlights}
-    %     \end{onecolentry}
-
-
-    %     \vspace{0.15 cm}
-
-    %     \begin{twocolentry}{
-            
-    %     \texttt{2022}}  
-    %     \textbf{Stress testing Chain-of-Thought Prompting} [\href{https://self-supervised.cs.jhu.edu/fa2022/}{SSL course} project]
-    %     \end{twocolentry}
-
-    %     % \vspace{0.10 cm}
-    %     \begin{onecolentry}
-    %         \begin{highlights}
-    %             \item Tested the robustness of Chain-of-Thought prompting with noisy labels in GPT-3. [\href{https://arxiv.org/abs/2309.16621}{report}]
-    %         \end{highlights}
-    %     \end{onecolentry}
-
-
-    %     \vspace{0.15 cm}
-
-    %     \begin{twocolentry}{
-            
-    %     \texttt{2022}}  
-    %     \textbf{Surgical Tool Segmentation} [\href{https://deep.cs.jhu.edu/deeplearning.html}{DL course} project]
-    %     \end{twocolentry}
-
-    %     % \vspace{0.10 cm}
-    %     \begin{onecolentry}
-    %         \begin{highlights}
-    %             \item Developed a novel data augmentation technique to improve tool segmentation performance. [\href{https://aamixsh.github.io/files/DL_final_project.pdf}{report}]
-    %         \end{highlights}
-    %     \end{onecolentry}
-
-
-    %     % \vspace{0.15 cm}
-
-    %     % \begin{twocolentry}{
-            
-            
-    %     % \textit{\href{https://github.com/sinaatalay/rendercv}{github.com/name/repo}}}
-    %     %     \textbf{Synchronized Desktop Calendar}
-    %     % \end{twocolentry}
-
-    %     % \vspace{0.10 cm}
-    %     % \begin{onecolentry}
-    %     %     \begin{highlights}
-    %     %         \item Developed a desktop calendar with globally shared and synchronized calendars, allowing users to schedule meetings with other users
-    %     %         \item Tools Used: C\#, .NET, SQL, XML
-    %     %     \end{highlights}
-    %     % \end{onecolentry}
-
-
-    %     % \vspace{0.2 cm}
-
-    %     % \begin{twocolentry}{
-            
-            
-    %     % \textit{2002}}
-    %     %     \textbf{Custom Operating System}
-    %     % \end{twocolentry}
-
-    %     % \vspace{0.10 cm}
-    %     % \begin{onecolentry}
-    %     %     \begin{highlights}
-    %     %         \item Built a UNIX-style OS with a scheduler, file system, text editor, and calculator
-    %     %         \item Tools Used: C
-    %     %     \end{highlights}
-    %     % \end{onecolentry}
-
-    % \section{Teaching Experience}
-
-    %     \begin{twocolentry}{
-            
-    %     \texttt{Spring 2024}}  
-    %     \textit{Machine Learning} [JHU]
-    %     \end{twocolentry}
-
-    %     \begin{twocolentry}{
-            
-    %     \texttt{Spring 2019}}  
-    %     \textit{Deep Learning and its Applications} [IIT Mandi]
-    %     \end{twocolentry}
-
-    %     \begin{twocolentry}{
-            
-    %     \texttt{Fall 2018}}  
-    %     \textit{Artificial Intelligence} [IIT Mandi]
-    %     \end{twocolentry}
-        
-    %     \vspace{0.15 cm}
-
-    %     Designed homeworks/exams in all courses. Held tutorials and taught lectures on Self-Supervised Learning. [\href{https://www.youtube.com/watch?v=y5jPjuK0cRk&list=PLzk_Fy2C8ccSDYX4fShGT0rsaGuknmNY4}{link}]
-        
-    %     % \begin{onecolentry}
-    %     %     \begin{highlights}
-    %     %         \item Live Cricket scorer to store and retrieve data/stats at the highest resolution. [\href{https://aamixsh.github.io/files/irwa_project.pdf}{report}]
-    %     %     \end{highlights}
-    %     % \end{onecolentry}
-
-
-    %     % \vspace{0.15 cm}
-    
-
-    
-    
-
-    % \section{Reviewing activities}
-    % \begin{twocolentry}{
-            
-    %     \texttt{2024, 2025, 2026}}  
-    %     ICLR
-    % \end{twocolentry}
-    % \begin{twocolentry}{
-            
-    %     \texttt{2024, 2025, 2026 (Silver Reviewer}}  
-    %     ICML
-    % \end{twocolentry}
-    % \begin{twocolentry}{
-            
-    %     \texttt{2025, 2026}}  
-    %     NeurIPS
-    % \end{twocolentry}
-    % \begin{twocolentry}{
-            
-    %     \texttt{2025}}  
-    %     UAI
-
-    %     \texttt{2026}}  
-    %     TMLR
-    % \end{twocolentry}
+{\fontsize{22}{24}\selectfont\bfseries Aayush Mishra}\par\vspace{6pt}
+{\small
+\link{mailto:amishr24@jhu.edu}{amishr24@jhu.edu}\sep
+\link{https://aamixsh.github.io}{aamixsh.github.io}\sep
+\link{https://scholar.google.com/citations?user=qd0DNpEAAAAJ}{Google Scholar}\sep
+\link{https://github.com/aamixsh}{github.com/aamixsh}\sep
+\link{https://linkedin.com/in/aamixsh}{linkedin.com/in/aamixsh}}\par\vspace{3pt}
+{\small\color{muted}Efficient and reliable AI: activation steering, adaptive computation, parameter-efficient adaptation}
+
+\section{Education}
+\job{Johns Hopkins University}{Ph.D., Computer Science}{advised by Anqi Liu}{Jan 2022 -- present}
+\hspace{11pt}M.S.E., Computer Science\sep GPA 4.0/4.0 (\link{https://aamixsh.github.io/files/grad_transcript.pdf}{transcript})\hfill{\color{muted}Dec 2023}\par\vspace{4pt}
+\job{IIT Mandi}{B.Tech., Computer Science \& Engineering, minor in Management}{}{Aug 2015 -- Jun 2019}
+\hspace{11pt}GPA 8.88/10 (\link{https://aamixsh.github.io/files/undergrad_degree_transcripts_instructions.pdf}{transcript})\par
+
+\section{Experience}
+\job{MATS}{Research Fellow (11.0), OpenAI Safety Team}{Berkeley, CA}{Sep 2026 -- present}
+\begin{bullets}
+  \item Researching \emph{natural} activation steering for reasoning and looped LMs, extending my result that standard steering drives models into internal states no prompt can reach.
+\end{bullets}
+
+\job{Qualcomm AI Research}{AI Research Intern}{Amsterdam, NL}{May -- Sep 2026}
+\begin{bullets}
+  \item Made early-exit computation practical in Looped LMs (Ouro): a best-available KV-caching strategy plus an effort-aware exit objective cut FLOPs and KV-cache memory by up to 30\% at full-depth quality.
+  \item Filed 3 invention disclosures; first-author paper on the work (\link{https://arxiv.org/abs/2610.09013}{arXiv}).
+\end{bullets}
+
+\job{Adobe}{AI Research Intern}{College Park, MD}{May -- Aug 2024}
+\begin{bullets}
+  \item Co-developed EigenLoRA, which recycles trained LoRA adapters into a shared principal subspace: new tasks train up to 100$\times$ fewer parameters and multi-adapter inference uses $\sim$18$\times$ less memory, for on-device LLM and diffusion models.
+\end{bullets}
+
+\job{Microsoft}{Data \& Applied Scientist, Bing Shopping}{Hyderabad, India}{Aug 2021 -- Jan 2022}
+\begin{bullets}
+  \item Built a query-to-product-category classifier over $\sim$18k classes and a relevance metric to improve offer ranking.
+\end{bullets}
+
+\job{Siemens}{Research Engineer}{Bengaluru, India}{Jul 2019 -- Aug 2021}
+\begin{bullets}
+  \item Developed a CNN explainability and compression algorithm for edge deployment; filed 3 invention disclosures.
+  \item Trained an RL agent to surface edge-case safety violations of self-driving agents in simulation.
+  \item Internships (2017--18): semantic code search with LSA; NLP classifier for Siemens' internal social network.
+\end{bullets}
+
+\section{Selected Publications}
+\pub{Enabling Dynamic Computation in Looped LMs}
+  {\me, Arnau Padrés Masdemont, et al.}{\link{https://arxiv.org/abs/2610.09013}{arXiv}}{2026}
+\pub{Steered LLM Activations are Non-Surjective}
+  {\me, Daniel Khashabi, Anqi Liu}{\link{https://arxiv.org/abs/2604.09839}{arXiv}; Sci4DL, Re-Align @ ICLR}{2026}
+\pub{IA2: Alignment with ICL Activations Improves Supervised Fine-Tuning}
+  {\me, Daniel Khashabi, Anqi Liu}{\link{https://arxiv.org/abs/2509.22621}{ICLR}}{2026}
+\pub{Genomic Next-Token Predictors are In-Context Learners}
+  {Nathan Breslow, \me, et al.}{\link{https://openreview.net/pdf?id=KmNFx8DmaZ}{TMLR}; MLGenX (Oral), Sci4DL @ ICLR}{2026}
+\pub{ODD: Overlap-aware Estimation of Model Performance under Distribution Shift}
+  {\me, Anqi Liu}{\link{https://proceedings.mlr.press/v286/mishra25a.html}{UAI}}{2025}
+\pub{EigenLoRA: Recycle Trained Adapters for Resource-Efficient Adaptation and Inference}
+  {\me$^*$, Prakhar Kaushik$^*$, et al.}{\link{https://openreview.net/pdf?id=KxGGZag9gW}{Preprint}}{2024}
+\pub{Do Pretrained Transformers Learn In-Context by Gradient Descent?}
+  {\me$^*$, Lingfeng Shen$^*$, Daniel Khashabi}{\link{https://arxiv.org/abs/2310.08540}{ICML (Oral)}}{2024}
+
+\section{Skills \& Service}
+{\bfseries Tools}\enspace Python, C++, PyTorch, Hugging Face Transformers/TRL, data engineering\par\vspace{2pt}
+{\bfseries Methods}\enspace activation steering, interpretability, adaptive computation, KV-cache efficiency, LoRA/PEFT, self-distillation\par\vspace{2pt}
+{\bfseries Reviewer}\enspace ICML (Silver Reviewer), ICLR, NeurIPS, UAI, TMLR\par
 
 \end{document}
