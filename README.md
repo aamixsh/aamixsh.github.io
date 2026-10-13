@@ -6,7 +6,7 @@ Personal site of Aayush Mishra. Plain static HTML: no build step. The only JavaS
 - `files/cv.tex`: CV source → `files/CV.pdf`
 - `files/`: CV and the degree/transcript PDFs it links to
 - `images/`: photo, publication thumbnails, and organization logos
-- `legacy_files/`: older files nothing links to anymore (kept so they stay findable)
+- Older files and the previous Jekyll site live on the `legacy` branch
 
 ## Update the CV
 
